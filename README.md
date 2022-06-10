@@ -1,2 +1,2 @@
-# stir
+# Stir
 Cocktail Recipe App
