@@ -61,10 +61,10 @@ app.use(express.static("public")); // serve files from public statically
 app.get("/drinks/seed", (req, res) => {
     // array of starter ingredients
     const startIngredients = [
-      { name: "Vodka", img: "https://www.thecocktaildb.com/images/ingredients/vodka-Medium.png",},
-      { name: "Bourbon", img: "https://www.thecocktaildb.com/images/ingredients/bourbon-Medium.png"},
-      { name: "Mint", img: "https://www.thecocktaildb.com/images/ingredients/mint-Medium.png"},
-      { name: "Lemon", img: "https://www.thecocktaildb.com/images/ingredients/lemon-Medium.png"},
+      { name: "Vodka", img: "https://www.thecocktaildb.com/images/ingredients/vodka-Medium.png", selected: false},
+      { name: "Bourbon", img: "https://www.thecocktaildb.com/images/ingredients/bourbon-Medium.png", selected: false},
+      { name: "Mint", img: "https://www.thecocktaildb.com/images/ingredients/mint-Medium.png", selected: false},
+      { name: "Lemon", img: "https://www.thecocktaildb.com/images/ingredients/lemon-Medium.png", selected: false},
     ];
     // Delete all ingredients
     Ingredient.deleteMany({}).then((data) => {

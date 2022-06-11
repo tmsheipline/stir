@@ -1,0 +1,14 @@
+{% layout "layout.liquid" %} {% block content %}
+<div>
+  {% for ingredient in ingedients %}
+  <article>
+    <a href="/ingredients/{{ ingredient._id }}">
+      <h2>
+        {{ingredient.name}} - {% if ingredient.selected == true %} Selected {% else %} Not
+        Selected {% endif %}
+      </h2>
+    </a>
+  </article>
+  {% endfor %}
+</div>
+{% endblock %}
