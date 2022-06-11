@@ -1,0 +1,29 @@
+{
+  "name": "stir",
+  "version": "1.0.0",
+  "description": "The Cocktail Recipe App ## Premise ## ### Have you ever wondered what you could make out of the ingredients you already have in your pantry? Look no further. Stir is a cocktail recipe app that takes the ingredients you have on hand and searches for cocktail recipes that you could possibly make with those ingredients. ###",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tmsheipline/stir.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tmsheipline/stir/issues"
+  },
+  "homepage": "https://github.com/tmsheipline/stir#readme",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "liquid-express-views": "^1.0.8",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.3.6",
+    "morgan": "^1.10.0"
+  }
+}
