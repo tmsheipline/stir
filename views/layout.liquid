@@ -31,13 +31,16 @@
         <link rel="stylesheet" href="/styles.css" />
         <script src="/app.js" defer></script>
         <!-- Favicon -->
-        <link rel="shortcut icon" href="./images/stirLogo.png" type="image/x-icon">
+        <link rel="shortcut icon" href="images/stirLogo.png" type="image/x-icon">
         
       </head>
       <body>
         <header>
-            <img src="/image/stirLogo.png" alt="Stir Logo">
-            <ul class="nav justify-content-end">
+            <div><img src="images/stirLogo.png alt="Stir Logo"></div>
+            <a class="navbar-brand" href="#">
+                <img classs="img-responsive" width="130px" height="" src="../images/stirLogo.png">
+              </a>
+             <ul class="nav justify-content-end">
                 <li class="nav-item">
                   <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#">Ingredients</a>
                 </li>
@@ -48,10 +51,22 @@
                   <a class="flex-sm-fill text-sm-center nav-link" href="#">Login</a>
                 </li>
             </ul>
+
+            {% comment %} <nav class="navbar navbar-inverse navbar-fixed-top  ">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="#">
+                    <img classs="img-responsive" width="130px" height="" src="https://cdn.pixabay.com/photo/2016/02/19/15/46/dog-1210559_960_720.jpg">
+                  </a>
+                  <a class="navbar-brand" href="">
+                    <span class="glyphicon glyphicon-home"></span> | Stir  </a>
+                </div>
+                <ul class="nav navbar-nav">
+                  <li class="active"><a href="">Series</a></li>
+                </ul>
+              </nav> {% endcomment %}
         </header>
         
         <main>{% block content %}My default content{% endblock %}</main>
-    
         <footer></footer>
       </body>
     </html>

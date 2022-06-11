@@ -28,8 +28,21 @@ a:hover{
         text-decoration: underline;
         border: 1px solid black;
     }
+html{
+    background-image: url('https://static.pexels.com/photos/616836/pexels-photo-616836.jpeg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: unset;
+        /* -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover; */
+        height: 100vh;
+        width: auto;
+        opacity: 0.65
+}
 
-main{
+
+/* main{
     background-image: url('https://static.pexels.com/photos/616836/pexels-photo-616836.jpeg');
         background-position: center;
         background-repeat: no-repeat;
@@ -40,4 +53,4 @@ main{
         -o-background-size: cover;
         height: 100vh;
         width: auto;
- }
+ } */
