@@ -1,6 +1,6 @@
 :root {
     --header: #abbea4;
-    --header1: #2980b9;
+    /* --header1: #2980b9; */
 }
 
 *{
@@ -11,7 +11,7 @@
 }
 header{
     /* background-color: var(--header); */
-    background-color: #2980b9;
+    background-color: var(--header);
     margin: 0;
     padding: 0;
 }
@@ -174,4 +174,9 @@ input[type="submit" i] {
     .img-name-pic:focus h3{
         display: block;
     }
+}
+
+#logoimage{
+    height: auto;
+    width: 40em;
 }
