@@ -111,12 +111,44 @@ body{
 }
 .ingredient-container{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
 h1{
     text-align: center;
 }
+
+
+img{
+    height: 8em;
+    width: 8em;
+}
+
+input[type="submit" i] {
+    appearance: auto;
+    user-select: none;
+    white-space: pre;
+    align-items: flex-start;
+    text-align: center;
+    cursor: default;
+    box-sizing: border-box;
+    background-color: buttonface;
+    color: buttontext;
+    padding: 1em;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonborder;
+    border-image: initial;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+
+
 
 @media screen and (max-width: 480px) {
     .ingredient-container{
@@ -126,9 +158,4 @@ h1{
     h1{
         font-size: 20px;
     }
-}
-
-img{
-    height: 8em;
-    width: 8em;
 }

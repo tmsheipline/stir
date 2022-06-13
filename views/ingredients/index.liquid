@@ -2,6 +2,7 @@
 
 <h1>Select ingredients you have on hand to search for cocktail recipes</h1>
 <div>
+  <h2>Liquor:</h2>
   <div class="ingredient-container">
     {% for ingredient in ingredients %}
     {% comment %} <a href="/ingredients/{{ ingredient._id }}"> {% endcomment %}
@@ -12,5 +13,7 @@
   {% endfor %}
   </div>
 </div>
-<form action=""></form>
+<form action="" class="seach-cocktail-form">
+  <input type="submit" value="Search for cocktails">
+</form>
 {% endblock %}
