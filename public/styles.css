@@ -64,7 +64,9 @@ a:hover{
 body{
 	margin:0;
 	padding:0;
-    background: url('https://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png') repeat 0 0;
+    /* background: url('https://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png') repeat 0 0; */
+    /* background: url('https://img.freepik.com/free-vector/condensation-water-drops-transparent_107791-6308.jpg?size=626&ext=jpg&ga=GA1.2.1169253927.1655138962') repeat 0 0; */
+    background: url('https://img.freepik.com/free-vector/clear-water-drops-dew-dripping-rain-droplets_107791-12567.jpg?size=626&ext=jpg&ga=GA1.2.1169253927.1655138962') repeat 0 0;
 	-webkit-animation: 10s linear 0s normal none infinite animate;
 	-moz-animation: 10s linear 0s normal none infinite animate;
 	-ms-animation: 10s linear 0s normal none infinite animate;
@@ -106,9 +108,17 @@ body{
     align-items: center;
     margin: 1em;
     text-align: center;
-    /* display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr; */
 }
+
+
+.img-name-pic h3{
+    display: none;
+}
+.img-name-pic:hover h3{
+    display: block;
+}
+
+
 .ingredient-container{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -157,5 +167,11 @@ input[type="submit" i] {
     }
     h1{
         font-size: 20px;
+    }
+    .img-name-pic h3{
+        display: none;
+    }
+    .img-name-pic:focus h3{
+        display: block;
     }
 }
