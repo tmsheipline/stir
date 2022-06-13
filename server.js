@@ -10,6 +10,7 @@ const path = require("path");
 const Ingredient = require('./models/ingredient')
 const User = require('./models/user')
 const Cocktail = require('./models/cocktail')
+const bcrypt = require('bcryptjs')
 
 /*========================================
     Database Connection
@@ -55,17 +56,36 @@ app.get("/drinks/seed", (req, res) => {
       { name: "Scotch", image: "https://www.thecocktaildb.com/images/ingredients/scotch-Medium.png"},
       { name: "Whisky", image: "https://www.thecocktaildb.com/images/ingredients/whiskey-Medium.png"},
       { name: "Gin", image: "https://www.thecocktaildb.com/images/ingredients/gin-Medium.png"},
+      { name: "Cognac", image: "https://www.thecocktaildb.com/images/ingredients/cognac-Medium.png"},
       { name: "Rum", image: "https://www.thecocktaildb.com/images/ingredients/rum-Medium.png"},
+      { name: "Grenadine", image: "https://www.thecocktaildb.com/images/ingredients/irish%20cream-Medium.png"},
+      { name: "Irish Creme", image: "https://www.thecocktaildb.com/images/ingredients/irish%20cream-Medium.png"},
       { name: "Kahlua", image: "https://www.thecocktaildb.com/images/ingredients/kahlua-Medium.png"},
       { name: "Amaretto", image: "https://www.thecocktaildb.com/images/ingredients/amaretto-Medium.png"},
-      { name: "Bitters", image: "https://www.thecocktaildb.com/images/ingredients/bitters-Medium.png"},
+      { name: "Southern Comfort", image: "https://www.thecocktaildb.com/images/ingredients/southern%20comfort-Medium.png"},
+      { name: "Triple Sec", image: "https://www.thecocktaildb.com/images/ingredients/triple%20sec-Medium.png"},
       { name: "Vermouth", image: "https://www.thecocktaildb.com/images/ingredients/vermouth-Medium.png"},
+      { name: "Champagne", image: "https://www.thecocktaildb.com/images/ingredients/champagne-Medium.png"},
+      { name: "Orange Bitters", image: "https://www.thecocktaildb.com/images/ingredients/orange%20bitters-Medium.png"},
+      { name: "Simple Sugar Syrup", image: "https://www.thecocktaildb.com/images/ingredients/sugar%20syrup-Medium.png"},
+      { name: "Bitters", image: "https://www.thecocktaildb.com/images/ingredients/bitters-Medium.png"},
       { name: "Mint", image: "https://www.thecocktaildb.com/images/ingredients/mint-Medium.png"},
+      { name: "Basil", image: "https://www.thecocktaildb.com/images/ingredients/basil-Medium.png"},
       { name: "Lemon", image: "https://www.thecocktaildb.com/images/ingredients/lemon-Medium.png"},
+      { name: "Lemon Juice", image: "https://www.thecocktaildb.com/images/ingredients/lemon%20juice-Medium.png"},
       { name: "Sprite", image: "https://www.thecocktaildb.com/images/ingredients/sprite-Medium.png"},
-      { name: "Coffee", image: "https://www.thecocktaildb.com/images/ingredients/coffee-Medium.png"},
+      { name: "Dr Pepper", image: "https://www.thecocktaildb.com/images/ingredients/Dr%20pepper-Medium.png"},
       { name: "Lemonade", image: "https://thecocktaildb.com/images/ingredients/lemonade-Medium.png"},
-
+      { name: "Pineapple Juice", image: "https://www.thecocktaildb.com/images/ingredients/pineapple%20juice-Medium.png"},
+      { name: "Cranberry Juice", image: "https://www.thecocktaildb.com/images/ingredients/cranberry%20juice-Medium.png"},
+      { name: "Orange Juice", image: "https://www.thecocktaildb.com/images/ingredients/orange%20juice-Medium.png"},
+      { name: "Sugar", image: "https://www.thecocktaildb.com/images/ingredients/sugar-Medium.png"},
+      { name: "Heavy Cream", image: "https://www.thecocktaildb.com/images/ingredients/heavy%20cream-Medium.png"},
+      { name: "Tomato Juice", image: "https://www.thecocktaildb.com/images/ingredients/tomato%20juice-Medium.png"},
+      { name: "Coffee", image: "https://www.thecocktaildb.com/images/ingredients/coffee-Medium.png"},
+      { name: "Grapefruit Juice", image: "https://www.thecocktaildb.com/images/ingredients/grapefruit%20juice-Medium.png"},
+      { name: "Fruit", image: " https://www.thecocktaildb.com/images/ingredients/fruit-Medium.png"},
+     
     ];
     // Delete all ingredients
     Ingredient.deleteMany({}).then((data) => {
@@ -178,6 +198,12 @@ app.get("/ingredients", (req, res) => {
       });
   });
 
+  app.get('/signup', (req, res) => {
+    res.render('users/signup')
+})
+
+
+
 // new route ('/route/new') - method=GET
 // new route
 app.get("/cocktails/new", (req, res) => {
@@ -238,6 +264,27 @@ app.post("/cocktails", (req, res) => {
     });
 });
 
+app.post('/users/signup', async (req, res) => {
+  // console.log('this is initial req.body in signup', req.body)
+  // first encrypt our password
+  req.body.password = await bcrypt.hash(
+      req.body.password, 
+      await bcrypt.genSalt(15)
+  )
+  // console.log('req.body after hash', req.body)
+  // create a new user
+  User.create(req.body)
+      // if created successfully redirect to login
+      .then(user => {
+          res.redirect('/user/login')
+      })
+      // if an error occurs, send err
+      .catch(error => {
+          console.log(error)
+          res.json(error)
+      })
+})
+
 
 
 // edit route ('/route/:id/edit') - method=GET
@@ -277,6 +324,8 @@ app.get("/cocktails/:id", (req, res) => {
       res.json({ error });
     });
 });
+
+
 
 
 /*========================================

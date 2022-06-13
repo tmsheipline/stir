@@ -5,7 +5,9 @@
 
 *{
     box-sizing: border-box;
-    font-family: 'Playfair Display SC', serif;
+    /* font-family: 'Playfair Display SC', serif; */
+    font-family: 'Playfair Display', serif;
+
     margin: 0;
     padding: 0;
 }
@@ -41,7 +43,7 @@ a:hover{
     }
  .drinkname{
     text-decoration: none;
-    color: whitesmoke;
+    color: black;
     }
 .drinkname:hover{
     border: none;
@@ -50,15 +52,15 @@ a:hover{
 }
 
 .favcocktails{
-    margin: 0;
-    color: whitesmoke;
+    margin: 1em;
+    color: black;
     text-decoration: underline;
     display: flex;
     justify-content: center;
     text-align: center;
 }
 .individual-drink-name{
-    color: whitesmoke;
+    color: black;
 }
 
 body{
@@ -118,6 +120,11 @@ body{
     display: block;
 }
 
+.img-name-pic::selection{
+    color: yellow;
+    outline: #abbea4;
+}
+
 
 .ingredient-container{
     display: grid;
@@ -161,6 +168,26 @@ input[type="submit" i] {
     margin-left: 1em;
 }
 
+
+.fav-drinks-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.fav-drinks{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.cocktail-images{
+    height: 15em;
+    width: auto;
+}
+
 @media screen and (max-width: 480px) {
     .ingredient-container{
         display: grid;
@@ -175,8 +202,12 @@ input[type="submit" i] {
     .img-name-pic:focus h3{
         display: block;
     }
-    #logoimage{
+    /* #logoimage{
         height: 500px ;
         width: 100px ;
+    } */
+    .fav-drinks-container{
+        display: grid;
+        grid-template-columns: 1fr;
     }
 }

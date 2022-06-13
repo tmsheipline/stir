@@ -1,19 +1,28 @@
 {% layout "layout.liquid" %} {% block content %}
 
-<h1>Select ingredients you have on hand to search for cocktail recipes</h1>
+<h1>Select ingredients you currently have</h1>
 <div>
   {% comment %} <h2>Liquor:</h2> {% endcomment %}
   <div class="ingredient-container">
     {% for ingredient in ingredients %}
     {% comment %} <a href="/ingredients/{{ ingredient._id }}"> {% endcomment %}
-      <div class="img-name-pic">
+      <div class="img-name-pic" onclick="selectedIngredient()">
         <img src="{{ingredient.image}}" alt="Image of ingredient"> 
         <h3 class="hide-ing-name"> {{ingredient.name}}</h3>
     </div>
   {% endfor %}
   </div>
 </div>
+<script type="text/javascript">
+ function selectedIngredient(){
+  console.log('Div Selected')
+  const div = document.querySelector('.image-name-pic'); 
+ }
+</script>
+
 <form action="" class="seach-cocktail-form">
   <input type="submit" value="Search for cocktails">
 </form>
 {% endblock %}
+
+
