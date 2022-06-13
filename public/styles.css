@@ -20,6 +20,10 @@ header{
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
 }
 
+.nav-link:hover{
+    background-color: #ead685;
+}
+
 .nav{
     --bs-nav-link-hover-color: black;
 }
@@ -28,18 +32,19 @@ a:hover{
         text-decoration: underline;
         border: 1px solid black;
     }
-html{
+
+/* html{
     background-image: url('https://static.pexels.com/photos/616836/pexels-photo-616836.jpeg');
         background-position: center;
         background-repeat: no-repeat;
-        background-size: unset;
-        /* -webkit-background-size: cover;
+        background-size: cover;
+        -webkit-background-size: cover;
         -moz-background-size: cover;
-        -o-background-size: cover; */
+        -o-background-size: cover;
         height: 100vh;
         width: auto;
-        opacity: 0.65
-}
+        opacity: 0.55
+} */
 
 
 /* main{
@@ -47,10 +52,10 @@ html{
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        background-attachment: fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
         height: 100vh;
         width: auto;
+        opacity: 0.55;
  } */

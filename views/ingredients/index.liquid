@@ -1,12 +1,11 @@
 {% layout "layout.liquid" %} {% block content %}
-
 <div>
-  {% for ingredient in ingedients %}
+  {% for ingredient in ingredients %}
   <article>
     <a href="/ingredients/{{ ingredient._id }}">
       <h2>
-        {{ingredient.name}} - {% if ingredient.selected == true %} Selected {% else %} Not
-        Selected {% endif %}
+        {{ingredient.name}} <br>
+        <img src="{{ingredient.img}}" alt="Images of ingredients">
       </h2>
     </a>
   </article>
