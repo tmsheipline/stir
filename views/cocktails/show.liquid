@@ -5,9 +5,18 @@
             {{ cocktail.name }}
           </h2>
           <h3>
-        {{cocktail.image}} <br>
-          {{cocktail.ingredients }} <br> <br>
-          {{cocktail.measurements}} <br> <br>
+        <img src="{{cocktail.image}}" alt=""> <br>
+        Ingredients: <br>
+        {% for ingredients in cocktail.ingredients%}
+            -{{ingredients}}-
+            {%endfor%} 
+            <br> <br>
+          Measurements: <br>
+          {% for measurements in cocktail.measurements%}
+            -{{measurements}}-
+            {%endfor%}
+        <br> <br>
+          Preparation: <br>
           {{cocktail.preparation}} <br> <br>
         
         </h3>

@@ -1,5 +1,6 @@
 :root {
     --header: #abbea4;
+    --header1: #2980b9;
 }
 
 *{
@@ -9,7 +10,8 @@
     padding: 0;
 }
 header{
-    background-color: var(--header);
+    /* background-color: var(--header); */
+    background-color: #2980b9;
     margin: 0;
     padding: 0;
 }
@@ -19,13 +21,14 @@ header{
     padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
     font-size: var(--bs-nav-link-font-size);
     font-weight: var(--bs-nav-link-font-weight);
-    color: black;
+    color: #abbea4;;
     text-decoration: none;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
 }
 
 .nav-link:hover{
-    background-color: #ead685;
+    /* background-color: #ead685; */
+    background-color: whitesmoke;
 }
 
 .nav{
@@ -43,52 +46,89 @@ a:hover{
 .drinkname:hover{
     border: none;
     text-decoration: overline;
-    color: palegoldenrod;
+    color: black;
 }
 
-/* main{
-    background-image: url('https://static.pexels.com/photos/616836/pexels-photo-616836.jpeg');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        height: 100vh; */
-        /* opacity: 0.55 */
-/* } */
-
-/* body{
-    background-image: url('https://static.pexels.com/photos/616836/pexels-photo-616836.jpeg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position-y: top;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    height: 100vh;
-    background-blend-mode: overlay;
-    /* width: auto; */
-    /* opacity: 0.7; */
-/* } */ 
-
-/* .backgroundimg{
-    background-image: url('https://static.pexels.com/photos/616836/pexels-photo-616836.jpeg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
-    width: 100%;
-} */
-html,main{
-    background-color: #abbea4;
-}
 .favcocktails{
     margin: 0;
-    color: palegoldenrod;
+    color: whitesmoke;
     text-decoration: underline;
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 .individual-drink-name{
-    color: palegoldenrod;
+    color: whitesmoke;
+}
+
+body{
+	margin:0;
+	padding:0;
+    background: url('https://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png') repeat 0 0;
+	-webkit-animation: 10s linear 0s normal none infinite animate;
+	-moz-animation: 10s linear 0s normal none infinite animate;
+	-ms-animation: 10s linear 0s normal none infinite animate;
+	-o-animation: 10s linear 0s normal none infinite animate;
+	animation: 10s linear 0s normal none infinite animate;
+ 
+}
+ 
+@-webkit-keyframes animate {
+	from {background-position:0 0;}
+	to {background-position: 500px 0;}
+}
+ 
+@-moz-keyframes animate {
+	from {background-position:0 0;}
+	to {background-position: 500px 0;}
+}
+ 
+@-ms-keyframes animate {
+	from {background-position:0 0;}
+	to {background-position: 500px 0;}
+}
+ 
+@-o-keyframes animate {
+	from {background-position:0 0;}
+	to {background-position: 500px 0;}
+}
+ 
+@keyframes animate {
+	from {background-position:0 0;}
+	to {background-position: 500px 0;}
+}
+
+.img-name-pic{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1em;
+    text-align: center;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr; */
+}
+.ingredient-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+h1{
+    text-align: center;
+}
+
+@media screen and (max-width: 480px) {
+    .ingredient-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    h1{
+        font-size: 20px;
+    }
+}
+
+img{
+    height: 8em;
+    width: 8em;
 }

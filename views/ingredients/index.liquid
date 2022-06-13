@@ -1,14 +1,16 @@
 {% layout "layout.liquid" %} {% block content %}
+
+<h1>Select ingredients you have on hand to search for cocktail recipes</h1>
 <div>
-  {% for ingredient in ingredients %}
-  <article>
-    <a href="/ingredients/{{ ingredient._id }}">
-      <h2>
-        <img src="{{ingredient.img}}" alt="Images of ingredients"><br>
-        {{ingredient.name}} 
-      </h2>
-    </a>
-  </article>
+  <div class="ingredient-container">
+    {% for ingredient in ingredients %}
+    {% comment %} <a href="/ingredients/{{ ingredient._id }}"> {% endcomment %}
+      <div class="img-name-pic">
+        <img src="{{ingredient.image}}" alt="Image of ingredient"> 
+        <h3> {{ingredient.name}}</h3>
+    </div>
   {% endfor %}
+  </div>
 </div>
+<form action=""></form>
 {% endblock %}

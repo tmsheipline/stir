@@ -46,7 +46,8 @@ const cocktailsSchema = new Schema({
   ingredients: Array,
   measurements: Array,
   served: String,
-  preparation: String
+  preparation: String,
+  image: String
 });
 
 // make ingredient model
@@ -72,23 +73,39 @@ app.use(express.static("public")); // serve files from public statically
     Routes
 ========================================*/
 //SEED Data
-// app.get("/drinks/seed", (req, res) => {
-//     // array of starter ingredients
-//     const startIngredients = [
-//       { name: "Vodka", img: "https://www.thecocktaildb.com/images/ingredients/vodka-Medium.png"},
-//       { name: "Bourbon", img: "https://www.thecocktaildb.com/images/ingredients/bourbon-Medium.png"},
-//       { name: "Mint", img: "https://www.thecocktaildb.com/images/ingredients/mint-Medium.png"},
-//       { name: "Lemon", img: "https://www.thecocktaildb.com/images/ingredients/lemon-Medium.png"},
-//     ];
-//     // Delete all ingredients
-//     Ingredient.deleteMany({}).then((data) => {
-//       // Seed Starter ingredients
-//       Ingredient.create(startIngredients).then((data) => {
-//         // send created fruits as response to confirm creation
-//         res.json(data);
-//       });
-//     });
-//   });
+app.get("/drinks/seed", (req, res) => {
+    // array of starter ingredients
+    const startIngredients = [
+      { name: "Vodka", image: "https://www.thecocktaildb.com/images/ingredients/vodka-Medium.png"},
+      { name: "Bourbon", image: "https://www.thecocktaildb.com/images/ingredients/bourbon-Medium.png"},
+      { name: "Tequila", image: "https://www.thecocktaildb.com/images/ingredients/tequila-Medium.png"},
+      { name: "Scotch", image: "https://www.thecocktaildb.com/images/ingredients/scotch-Medium.png"},
+      { name: "Whisky", image: "https://www.thecocktaildb.com/images/ingredients/whiskey-Medium.png"},
+      { name: "Gin", image: "https://www.thecocktaildb.com/images/ingredients/gin-Medium.png"},
+      { name: "Rum", image: "https://www.thecocktaildb.com/images/ingredients/rum-Medium.png"},
+      { name: "Kahlua", image: "https://www.thecocktaildb.com/images/ingredients/kahlua-Medium.png"},
+      { name: "Amaretto", image: "https://www.thecocktaildb.com/images/ingredients/amaretto-Medium.png"},
+      { name: "Bitters", image: "https://www.thecocktaildb.com/images/ingredients/bitters-Medium.png"},
+      { name: "Vermouth", image: "https://www.thecocktaildb.com/images/ingredients/vermouth-Medium.png"},
+      { name: "Mint", image: "https://www.thecocktaildb.com/images/ingredients/mint-Medium.png"},
+      { name: "Lemon", image: "https://www.thecocktaildb.com/images/ingredients/lemon-Medium.png"},
+      { name: "Sprite", image: "https://www.thecocktaildb.com/images/ingredients/sprite-Medium.png"},
+      { name: "Coffee", image: "https://www.thecocktaildb.com/images/ingredients/coffee-Medium.png"},
+      { name: "Lemonade", image: "https://thecocktaildb.com/images/ingredients/lemonade-Medium.png"},
+
+
+
+
+    ];
+    // Delete all ingredients
+    Ingredient.deleteMany({}).then((data) => {
+      // Seed Starter ingredients
+      Ingredient.create(startIngredients).then((data) => {
+        // send created fruits as response to confirm creation
+        res.json(data);
+      });
+    });
+  });
   app.get("/drinks/seed", (req, res) => {
   const startCocktails = [
     {
@@ -98,7 +115,7 @@ app.use(express.static("public")); // serve files from public statically
       served: "Shaken; up",
       preparation:
         "Chill the glass with ice and water then pour all ingredients in shaker over ice. Shake contents for minimum 20 seconds to get the frothy crema. Tap and swirl shaker to get all the foam. Pour out ice and water from prepped glass and strain ingredients over chilled glass, garnish with 3 coffee beans.",
-        image: "",
+        image: "https://www.thecocktaildb.com/images/media/drink/n0sx531504372951.jpg",
     },
     {
       name: "Whiskey Sour",
@@ -108,7 +125,8 @@ app.use(express.static("public")); // serve files from public statically
         "Simple Syrup",
         "Egg White",
         "Angostura Bitters",
-      ],
+         ],
+      image: "https://www.thecocktaildb.com/images/media/drink/vruvtp1472719895.jpg",
       measurements: ["2oz", "3/4oz", "1/2oz", "1oz", "3 drops"],
       served: "Shaken; on the rocks",
       preparation:
@@ -125,7 +143,8 @@ app.use(express.static("public")); // serve files from public statically
       measurements: ["2oz", "1/4oz", "3/4oz", "3/4oz"],
       served: "Shaken, on the rocks",
       preparation:
-        "Add Blended Scotch, lemon juice, and honey-ginger syrup into shaker, add ice and shake ingredients. Strain over ice into rocks glass. Float the Islay scotch on top using bar spoon. Garnish with candied ginger or lemon peel."
+        "Add Blended Scotch, lemon juice, and honey-ginger syrup into shaker, add ice and shake ingredients. Strain over ice into rocks glass. Float the Islay scotch on top using bar spoon. Garnish with candied ginger or lemon peel.",
+      image: "https://www.thecocktaildb.com/images/media/drink/hc9b1a1521853096.jpg"
     },
     {
       name: "Negroni",
@@ -133,7 +152,8 @@ app.use(express.static("public")); // serve files from public statically
       measurements: ["1oz", "1oz", "1oz"],
       served: "Sirred, on the rocks",
       preparation:
-        "Add the ingredients to a glass and fill with plenty of ice . Stir with bar spoon to dilute and bring the temperature down. Strain into rocks glass with one large cube. Garnish with orange peel"
+        "Add the ingredients to a glass and fill with plenty of ice . Stir with bar spoon to dilute and bring the temperature down. Strain into rocks glass with one large cube. Garnish with orange peel",
+      image: "https://www.thecocktaildb.com/images/media/drink/qgdu971561574065.jpg",
     },
     {
       name: "Aperol Spritz",
@@ -142,6 +162,7 @@ app.use(express.static("public")); // serve files from public statically
       served: "On the rocks; poured over ice",
       preparation:
         "Fill wine glass (stem or stemless) with ice and pour the Aperol, then the Prosecco and then splash with club soda. Add orange slice.",
+      image: "https://www.thecocktaildb.com/images/media/drink/iloasq1587661955.jpg"
     },
   ];
     // Delete all ingredients
@@ -194,10 +215,40 @@ app.get("/cocktails/new", (req, res) => {
 });
 
 // delete route ('/route/:id') - method=DELETE
+app.delete("/cocktails/:id", (req, res) => {
+  // get the id from params
+  const id = req.params.id;
+  // delete the cocktail
+  Cocktail.findByIdAndRemove(id)
+    .then((cocktail) => {
+      // redirect to main page after deleting
+      res.redirect("/cocktails");
+    })
+    // send error as json
+    .catch((error) => {
+      console.log(error);
+      res.json({ error });
+    });
+});
 
 
 
 // update route ('/route/:id') - method=PUT
+app.put("/cocktails/:id", (req, res) => {
+  // get the id from params
+  const id = req.params.id;
+  // update the cocktail
+  Cocktail.findByIdAndUpdate(id, req.body, { new: true })
+    .then((cocktail) => {
+      // redirect to main page after updating
+      res.redirect("/cocktails");
+    })
+    // send error as json
+    .catch((error) => {
+      console.log(error);
+      res.json({ error });
+    });
+});
 
 
 
