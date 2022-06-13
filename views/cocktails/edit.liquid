@@ -1,0 +1,20 @@
+{% layout "layout.liquid" %} {% block content %}
+<div>
+  <form action="/cocktails{{cocktail._id}}?_method=PUT" method="post">
+    <fieldset>
+      <legend>Edit {{cocktail.name}}</legend>
+      <label>
+        Name:<input type="text" name="name" placeholder="Enter cocktail name" value="{{cocktail.name}}" />
+      </label>
+      <label>
+        Ingredients:<input type="text" name="ingredients" placeholder="Enter ingredients list" value="{{cocktail.ingredients}}" />
+      </label>
+      <label> Measurements:<input type="text" name="measurements" placeholder="Enter measurements of ingredients" value="{{cocktail.measurements}}" /> </label>
+      <label> How is it served? <input type="text" name="served" placeholder="etc...Shaken, Stirred, On the rocks, Poured over ice..." value= "{{cocktail.served}}"/> </label>
+      <label> Preparation: <input type="text" name="preparation" placeholder="Enter preparation instructions" value="{{cocktail.preparation}}" /> </label>
+
+    </fieldset>
+    <input type="submit" value="Edit {{cocktail.name}}" />
+  </form>
+</div>
+{% endblock %}

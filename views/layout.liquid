@@ -40,18 +40,27 @@
           <img src="views/ingredients/stirLogo.png" alt="WHY WONT YOU WORK">
           <ul class="nav justify-content-end">
             <li class="nav-item">
-                  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#">Ingredients</a>
+                  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="flex-sm-fill text-sm-center nav-link" href="#">My recipes</a>
+                  <a class="flex-sm-fill text-sm-center nav-link" href="#">My cocktails</a>
                 </li>
                 <li class="nav-item">
                   <a class="flex-sm-fill text-sm-center nav-link" href="#">Login</a>
                 </li>
             </ul>
         </header>
+        {% comment %} <div class="masthead" style="background-image: url('https://static.pexels.com/photos/616836/pexels-photo-616836.jpeg');">
+        <div class="color-overlay d-flex justify-content-centerl align-items-center">
+        </div> {% endcomment %}
+        <div class="row backgroundimg">
+          <div class="container">
+            <h1 class="h1 text-center">TEST</h1>
+            <main>{% block content %}My default content{% endblock %}</main>
+            </div>
         
-        <main>{% block content %}My default content{% endblock %}</main>
+        </div>
+        </div>
         <footer></footer>
       </body>
     </html>
