@@ -241,15 +241,15 @@ app.get("/cocktails/:id/edit", (req, res) => {
 
 // show route ('/route/:id') - method=GET
 // show route
-app.get("/fruits/:id", (req, res) => {
+app.get("/cocktails/:id", (req, res) => {
   // get the id from params
   const id = req.params.id;
 
   // find the particular fruit from the database
-  Fruit.findById(id)
-    .then((fruit) => {
+  Cocktail.findById(id)
+    .then((cocktail) => {
       // render the template with the data from the database
-      res.render("fruits/show.liquid", { fruit });
+      res.render("cocktails/show.liquid", { cocktail });
     })
     .catch((error) => {
       console.log(error);

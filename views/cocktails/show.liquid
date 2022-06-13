@@ -1,0 +1,28 @@
+{% layout "layout.liquid" %} {% block content %}
+      <div>
+        <article>
+          <h2>
+            {{ cocktail.name }}
+          </h2>
+          <h3>
+        {{cocktail.image}} <br>
+          {{cocktail.ingredients }} <br> <br>
+          {{cocktail.measurements}} <br> <br>
+          {{cocktail.preparation}} <br> <br>
+        
+        </h3>
+
+          <form action="/cocktails/{{ cocktail._id }}?_method=DELETE" method="POST">
+            <input type="submit" value="Remove from My Cocktails List" />
+          </form>
+          <a href="/cocktails/"><button>Back to Main</button></a>
+        </article>
+      </div>
+{% endblock %}
+
+
+
+
+
+
+

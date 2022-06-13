@@ -1,15 +1,13 @@
 {% layout "layout.liquid" %} {% block content %}
 <div>
-    <h1>Favorite Cocktails</h1>
+    <h1 class="favcocktails">Favorite Cocktails</h1>
   {% for cocktail in cocktails %}
   <article>
     <h2>
         <br>
-        <a href="/cocktails/{{ cocktail._id }}">
+        <a href="/cocktails/{{ cocktail._id }}" class="drinkname">
         {{cocktail.name}}</a> <br> <br>
-        {% comment %} {{cocktail.ingredients}} <br>
-        {{cocktail.measurements}} <br> 
-        {{cocktail.preparation}} <br>  {% endcomment %}
+       
       </h2>
   </article>
   {% endfor %}
