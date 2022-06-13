@@ -10,23 +10,20 @@ const mongoose = require('mongoose')
 // we're going to use something called destructuring to accomplish this
 const { Schema, model } = mongoose
 
-// Make a user schema
-const userSchema = new Schema({
-    username: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    password: {
-        type: String,
-        required: true
-    }
-})
+//make cocktail schema
+const cocktailsSchema = new Schema({
+    name: String,
+    ingredients: Array,
+    measurements: Array,
+    served: String,
+    preparation: String,
+    image: String
+  });
 
-// Make a user model
-const User = model("User", userSchema)
+//make cocktail model
+const Cocktail = model("Cocktail", cocktailsSchema);
 
 /////////////////////////////////
 // export our user model
 /////////////////////////////////
-module.exports = User
+module.exports = Cocktail

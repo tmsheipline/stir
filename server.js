@@ -1,14 +1,15 @@
 /*========================================
     Import Dependencies
 ========================================*/
-
 require("dotenv").config(); // Load ENV Variables
 const express = require("express"); // import express
 const morgan = require("morgan"); //import morgan
 const methodOverride = require("method-override");
 const mongoose = require("mongoose");
 const path = require("path");
-const { url } = require("inspector");
+const Ingredient = require('./models/ingredient')
+const User = require('./models/user')
+const Cocktail = require('./models/cocktail')
 
 /*========================================
     Database Connection
@@ -27,34 +28,6 @@ mongoose.connection
   .on("open", () => console.log("Connected to Mongoose"))
   .on("close", () => console.log("Disconnected from Mongoose"))
   .on("error", (error) => console.log(error));
-
-  /*========================================
-        Models
-  ========================================*/
-const { Schema, model } = mongoose;
-
-// make ingredients schema based on API Info
-const ingredientsSchema = new Schema({
-    name: String,
-    image: String,
-    description: String
-});
-
-//make cocktail schema
-const cocktailsSchema = new Schema({
-  name: String,
-  ingredients: Array,
-  measurements: Array,
-  served: String,
-  preparation: String,
-  image: String
-});
-
-// make ingredient model
-const Ingredient = model("Ingredient", ingredientsSchema);
-
-//make cocktail model
-const Cocktail = model("Cocktail", cocktailsSchema);
 
 /*========================================
     Create Express App Object Bind Liquid Templating Engine
@@ -92,9 +65,6 @@ app.get("/drinks/seed", (req, res) => {
       { name: "Sprite", image: "https://www.thecocktaildb.com/images/ingredients/sprite-Medium.png"},
       { name: "Coffee", image: "https://www.thecocktaildb.com/images/ingredients/coffee-Medium.png"},
       { name: "Lemonade", image: "https://thecocktaildb.com/images/ingredients/lemonade-Medium.png"},
-
-
-
 
     ];
     // Delete all ingredients
