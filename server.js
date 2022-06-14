@@ -11,7 +11,6 @@ const Ingredient = require('./models/ingredient')
 const User = require('./models/user')
 const Cocktail = require('./models/cocktail')
 const bcrypt = require('bcryptjs')
-const fetch = require('node-fetch')
 
 /*========================================
     Database Connection
@@ -196,33 +195,49 @@ app.get("/ingredients", (req, res) => {
       // send error as json if they aren't
       .catch((error) => {
         res.json({ error });
-      });
-  });
+      });  
+    });    
+    
+    app.get('/users/signup', (req, res) => {
+      res.render('users/signup')
+    })    
+    /*========================================
+     API ROUTE - POST
+    ========================================*/
+    // app.get('/suggested', (req,res) => {
+    //   // const recipe = req.body.recipe
+    
+    // const requestURL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
+    // //to get data
+    // fetch(requestURL)
+    // .then((apiResponse) => {
+    //   console.log('Drink API success')
+    //   console.log(apiResponse)
+    //   return apiResponse.json()
+    // })
+    // .then((jsonData) => {
+    //   console.log(`Here is the other data`, jsonData)
+    //   const drinkData = jsonData
+    //   res.render('suggested', ({drinkData}))
+    // })
+    // .catch((error) => {
+    //   console.log(error)
+    //   res.json({error})
+    // })
+    // })
 
-  app.get('/users/signup', (req, res) => {
-    res.render('users/signup')
-})
-//suggested
-app.get("/suggested", (req, res) => {
-  // find all the ingredients / API??
-  Cocktail.find({})
-    // render a template after they are found
-    .then((cocktails) => {
-      res.render("cocktails/suggested.liquid", { cocktails });
-    })
-    // send error as json if they aren't
-    .catch((error) => {
-      res.json({ error });
-    });
-});
-
+// //suggested
+// app.get('cocktails/suggested', (req, res) => {
+//   console.log(`YIKES`)
+//   res.render('cocktails/suggested')
+// })  
 
 
 // new route ('/route/new') - method=GET
 // new route
 app.get("/cocktails/new", (req, res) => {
   res.render("cocktails/new.liquid");
-});
+});  
 
 // delete route ('/route/:id') - method=DELETE
 app.delete("/cocktails/:id", (req, res) => {
@@ -233,13 +248,13 @@ app.delete("/cocktails/:id", (req, res) => {
     .then((cocktail) => {
       // redirect to main page after deleting
       res.redirect("/cocktails");
-    })
+    })  
     // send error as json
     .catch((error) => {
       console.log(error);
       res.json({ error });
-    });
-});
+    });  
+});    
 
 
 
@@ -252,13 +267,13 @@ app.put("/cocktails/:id", (req, res) => {
     .then((cocktail) => {
       // redirect to main page after updating
       res.redirect("/cocktails");
-    })
+    })  
     // send error as json
     .catch((error) => {
       console.log(error);
       res.json({ error });
-    });
-});
+    });  
+});    
 
 
 
@@ -271,13 +286,13 @@ app.post("/cocktails", (req, res) => {
   .then((cocktails) => {
     // redirect user to index page if successfully created item
     res.redirect("/cocktails");
-  })
+  })  
   // send error as json
   .catch((error) => {
     console.log(error);
     res.json({ error });
-  });
-});
+  });  
+});  
 
   app.put("/:id", (req, res) => {
     // get the id from params
@@ -287,13 +302,13 @@ app.post("/cocktails", (req, res) => {
       .then((cocktail) => {
         // redirect to main page after updating
         res.redirect("/cocktails");
-      })
+      })  
       // send error as json
       .catch((error) => {
         console.log(error);
         res.json({ error });
-      });
-  });
+      });  
+  });    
 
 app.post('/signup', async (req, res) => {
   // console.log('this is initial req.body in signup', req.body)
@@ -301,27 +316,22 @@ app.post('/signup', async (req, res) => {
   req.body.password = await bcrypt.hash(
       req.body.password, 
       await bcrypt.genSalt(15)
-  )
+  )    
   // console.log('req.body after hash', req.body)
   // create a new user
   User.create(req.body)
       // if created successfully redirect to login
       .then(user => {
           res.redirect('/users/login')
-      })
+      })    
       // if an error occurs, send err
       .catch(error => {
           console.log(error)
           res.json(error)
-      })
-})
+      })    
+})      
 
-/*========================================
- API ROUTE - POST
-========================================*/
-app.post('/cocktails/suggested', (req,res) => {
-  const recipe = req.body.recipe
-})
+
 
 
 

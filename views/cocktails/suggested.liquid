@@ -1,24 +1,34 @@
 {% layout "layout.liquid" %} {% block content %}
-
 <h1>Suggested Cocktail Recipe based on ingredients you have</h1>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      <div>
+        <article>
+            //For loop to loop through API results
+          <h2>
+            Name ????
+          </h2>
+          Link: ?????
+          <h3>
+        {% comment %} Image<img src="{{}}" alt=""> <br>
+        Ingredients: ?????? <br>
+        {% for ingredients in cocktail.ingredients%}
+            -{{ingredients }}-
+            {%endfor%} 
+            <br> <br>
+          Measurements: ???????? <br>
+          {% for measurements in cocktail.measurements%}
+            -{{measurements}}-
+            {%endfor%}
+        <br> <br>
+          Preparation: ???????? <br>
+          {{cocktail.preparation}} <br> <br>
+        
+        </h3> {% endcomment %}
+        {% comment %} <a href="/cocktails/{{cocktail._id}}/edit"><button>Edit {{cocktail.name}}</button></a>
+          <form action="/cocktails/{{ cocktail._id }}?_method=DELETE" method="POST">
+            <input type="submit" value="Remove from My Cocktails List" />
+          </form> {% endcomment %}
+          {% comment %} <a href="/cocktails/"><button>Back to My Cocktails</button></a> {% endcomment %}
+          
+        </article>
+      </div>
 {% endblock %}

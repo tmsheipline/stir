@@ -19,7 +19,6 @@
         {% comment %} } {% endcomment %}
       }
      function selectedIngredient(name){
-      {% comment %} console.log(name) {% endcomment %}
       ingArray.push(name)
       console.log(ingArray)
      }
@@ -33,7 +32,7 @@
     {% endfor %}
   </article>
 
-<form action="/suggested" class="seach-cocktail-form">
+<form action="/ingredients" class="seach-cocktail-form">
   <input type="submit" name='recipe' value="Search for cocktails">
 </form>
 <a href="/user/logout"><button>Logout</button></a>
