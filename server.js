@@ -11,6 +11,7 @@ const Ingredient = require('./models/ingredient')
 const User = require('./models/user')
 const Cocktail = require('./models/cocktail')
 const bcrypt = require('bcryptjs')
+const fetch = require('node-fetch')
 
 /*========================================
     Database Connection
@@ -313,6 +314,13 @@ app.post('/signup', async (req, res) => {
           console.log(error)
           res.json(error)
       })
+})
+
+/*========================================
+ API ROUTE - POST
+========================================*/
+app.post('/cocktails/suggested', (req,res) => {
+  const recipe = req.body.recipe
 })
 
 
