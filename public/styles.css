@@ -162,7 +162,7 @@ input[type="submit" i] {
 }
 
 #logoimage{
-    height: auto;
+    height: 60px;
     width: auto;
     margin-top: 2.5em;
     margin-left: 1em;

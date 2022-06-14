@@ -167,7 +167,7 @@ app.get("/drinks/seed", (req, res) => {
 
 
   app.get("/", (req, res) => {
-      res.send("server is running...better catch it.");
+      res.render("index.liquid");
     });
   
 // I-N-D-U-C-E-S
@@ -276,7 +276,7 @@ app.post('/users/signup', async (req, res) => {
   User.create(req.body)
       // if created successfully redirect to login
       .then(user => {
-          res.redirect('/user/login')
+          res.redirect('/users/login')
       })
       // if an error occurs, send err
       .catch(error => {
