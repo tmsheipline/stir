@@ -122,12 +122,6 @@ body{
     display: block;
 }
 
-.img-name-pic::selection{
-    color: yellow;
-    outline: #abbea4;
-}
-
-
 .ingredient-container{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -212,4 +206,14 @@ input[type="submit" i] {
         display: grid;
         grid-template-columns: 1fr;
     }
+}
+
+.highlight h3{
+    display: block;
+    color: black;
+}
+.highlight {
+    border: 1px solid var(--header);
+    border-radius: 50%;
+    background-color: var(--header)
 }

@@ -1,24 +1,37 @@
 {% layout "layout.liquid" %} {% block content %}
 
 <h1>Select ingredients you currently have</h1>
-<div>
-  {% comment %} <h2>Liquor:</h2> {% endcomment %}
-  <div class="ingredient-container">
+
+  <article class="ingredient-container" id="ingredient-container">
+    <script type="text/javascript">
+      const ingArray = []
+      //event delegation
+      let selectedDiv;
+      const ingContainer = document.getElementById('ingredient-container')
+      {% comment %} console.log(ingContainer) {% endcomment %}
+      ingContainer.onclick = function(event){
+        let target = event.target
+         {% comment %} if (target.tagName == 'DIV'){ {% endcomment %}
+         selectedDiv = target.closest('div')
+          selectedDiv.classList.add('highlight') 
+          console.log(`hello`)
+          {% comment %} ingContainer.style.color = 'red' {% endcomment %}
+        {% comment %} } {% endcomment %}
+      }
+     function selectedIngredient(name){
+      {% comment %} console.log(name) {% endcomment %}
+      ingArray.push(name)
+      console.log(ingArray)
+     }
+    </script>
     {% for ingredient in ingredients %}
-    {% comment %} <a href="/ingredients/{{ ingredient._id }}"> {% endcomment %}
-      <div class="img-name-pic" onclick="selectedIngredient()">
+      
+      <div class="img-name-pic"  onclick="selectedIngredient('{{ingredient.name}}')">
         <img src="{{ingredient.image}}" alt="Image of ingredient"> 
         <h3 class="hide-ing-name"> {{ingredient.name}}</h3>
-    </div>
-  {% endfor %}
-  </div>
-</div>
-<script type="text/javascript">
- function selectedIngredient(){
-  console.log('Div Selected')
-  const div = document.querySelector('.image-name-pic'); 
- }
-</script>
+      </div>
+    {% endfor %}
+  </article>
 
 <form action="" class="seach-cocktail-form">
   <input type="submit" value="Search for cocktails">
@@ -26,5 +39,3 @@
 <a href="/user/logout"><button>Logout</button></a>
 
 {% endblock %}
-
-
