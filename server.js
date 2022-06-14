@@ -198,7 +198,7 @@ app.get("/ingredients", (req, res) => {
       });
   });
 
-  app.get('/signup', (req, res) => {
+  app.get('/users/signup', (req, res) => {
     res.render('users/signup')
 })
 
@@ -281,7 +281,7 @@ app.post("/cocktails", (req, res) => {
       });
   });
 
-app.post('/users/signup', async (req, res) => {
+app.post('/signup', async (req, res) => {
   // console.log('this is initial req.body in signup', req.body)
   // first encrypt our password
   req.body.password = await bcrypt.hash(
@@ -304,6 +304,7 @@ app.post('/users/signup', async (req, res) => {
 
 
 
+
 // edit route ('/route/:id/edit') - method=GET
 // edit route
 app.get("/cocktails/:id/edit", (req, res) => {
@@ -321,6 +322,48 @@ app.get("/cocktails/:id/edit", (req, res) => {
       res.json({ error });
     });
 });
+
+// get to render the login form
+app.get('/login', (req, res) => {
+  res.render('users/login')
+})
+// post to send the login info(and create a session)
+app.post('/login', async (req, res) => {
+  console.log('request object', req)
+  // get the data from the request body
+  const { username, password } = req.body
+  // then we search for the user
+  User.findOne({ username })
+      .then(async (user) => {
+          // check if the user exists
+          if (user) {
+              // compare the password
+              // bcrypt.compare evaluates to a truthy or a falsy value
+              const result = await bcrypt.compare(password, user.password)
+
+              if (result) {
+                  // then we'll need to use the session object
+                  // store some properties in the session
+                  req.session.username = username
+                  req.session.loggedIn = true
+                  // redirect to /fruits if login is successful
+                  res.redirect('/ingredients')
+              } else {
+                  // send an error if the password doesnt match
+                  res.json({ error: 'username or password incorrect'})
+
+              }
+          } else {
+              // send an error if the user doesnt exist
+              res.json({ error: 'user does not exist' })
+          }
+      })
+      // catch any other errors that occur
+      .catch(error => {
+          console.log(error)
+          res.json(error)
+      })
+})
 
 
 
