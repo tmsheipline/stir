@@ -28,6 +28,20 @@ router.use((req, res, next) => {
 ////////////////////////////////////////////
 // Routes
 ////////////////////////////////////////////
+// index route ('/route') - method=GET
+router.get("/ingredients", (req, res) => {
+    // find all the ingredients
+    Ingredient.find({})
+      // render a template after they are found
+      .then((ingredients) => {
+        res.render("ingredients/index.liquid", { ingredients });
+      })
+      // send error as json if they aren't
+      .catch((error) => {
+        res.json({ error });
+      });
+  });
+
 
 
 ////////////////////////////////////////////

@@ -172,35 +172,35 @@ app.get("/drinks/seed", (req, res) => {
   
 // I-N-D-U-C-E-S
 // index route ('/route') - method=GET
-app.get("/ingredients", (req, res) => {
-    // find all the ingredients
-    Ingredient.find({})
-      // render a template after they are found
-      .then((ingredients) => {
-        res.render("ingredients/index.liquid", { ingredients });
-      })
-      // send error as json if they aren't
-      .catch((error) => {
-        res.json({ error });
-      });
-  });
+// app.get("/ingredients", (req, res) => {
+//     // find all the ingredients
+//     Ingredient.find({})
+//       // render a template after they are found
+//       .then((ingredients) => {
+//         res.render("ingredients/index.liquid", { ingredients });
+//       })
+//       // send error as json if they aren't
+//       .catch((error) => {
+//         res.json({ error });
+//       });
+//   });
 //cocktails
-  app.get("/cocktails", (req, res) => {
-    // find all the ingredients
-    Cocktail.find({})
-      // render a template after they are found
-      .then((cocktails) => {
-        res.render("cocktails/index.liquid", { cocktails });
-      })
-      // send error as json if they aren't
-      .catch((error) => {
-        res.json({ error });
-      });  
-    });    
+  // app.get("/cocktails", (req, res) => {
+  //   // find all the ingredients
+  //   Cocktail.find({})
+  //     // render a template after they are found
+  //     .then((cocktails) => {
+  //       res.render("cocktails/index.liquid", { cocktails });
+  //     })
+  //     // send error as json if they aren't
+  //     .catch((error) => {
+  //       res.json({ error });
+  //     });  
+  //   });    
     
-    app.get('/users/signup', (req, res) => {
-      res.render('users/signup')
-    })    
+    // app.get('/users/signup', (req, res) => {
+    //   res.render('users/signup')
+    // })    
     /*========================================
      API ROUTE - POST
     ========================================*/
@@ -235,101 +235,104 @@ app.get("/ingredients", (req, res) => {
 
 // new route ('/route/new') - method=GET
 // new route
-app.get("/cocktails/new", (req, res) => {
-  res.render("cocktails/new.liquid");
-});  
+// app.get("/cocktails/new", (req, res) => {
+//   res.render("cocktails/new.liquid");
+// });  
 
-// delete route ('/route/:id') - method=DELETE
-app.delete("/cocktails/:id", (req, res) => {
-  // get the id from params
-  const id = req.params.id;
-  // delete the cocktail
-  Cocktail.findByIdAndRemove(id)
-    .then((cocktail) => {
-      // redirect to main page after deleting
-      res.redirect("/cocktails");
-    })  
-    // send error as json
-    .catch((error) => {
-      console.log(error);
-      res.json({ error });
-    });  
-});    
+// // delete route ('/route/:id') - method=DELETE
+// app.delete("/cocktails/:id", (req, res) => {
+//   // get the id from params
+//   const id = req.params.id;
+//   // delete the cocktail
+//   Cocktail.findByIdAndRemove(id)
+//     .then((cocktail) => {
+//       // redirect to main page after deleting
+//       res.redirect("/cocktails");
+//     })  
+//     // send error as json
+//     .catch((error) => {
+//       console.log(error);
+//       res.json({ error });
+//     });  
+// });    
 
 
 
 // update route ('/route/:id') - method=PUT
-app.put("/cocktails/:id", (req, res) => {
-  // get the id from params
-  const id = req.params.id;
-  // update the cocktail
-  Cocktail.findByIdAndUpdate(id, req.body, { new: true })
-    .then((cocktail) => {
-      // redirect to main page after updating
-      res.redirect("/cocktails");
-    })  
-    // send error as json
-    .catch((error) => {
-      console.log(error);
-      res.json({ error });
-    });  
-});    
+// app.put("/cocktails/:id", (req, res) => {
+//   // get the id from params
+//   const id = req.params.id;
+//   // update the cocktail
+//   Cocktail.findByIdAndUpdate(id, req.body, { new: true })
+//     .then((cocktail) => {
+//       // redirect to main page after updating
+//       res.redirect("/cocktails");
+//     })  
+//     // send error as json
+//     .catch((error) => {
+//       console.log(error);
+//       res.json({ error });
+//     });  
+// });    
 
 
 
 
 // create route ('/route') - method=POST
 // create route
-app.post("/cocktails", (req, res) => {
-  // create the new fruit
-  Cocktail.create(req.body)
-  .then((cocktails) => {
-    // redirect user to index page if successfully created item
-    res.redirect("/cocktails");
-  })  
-  // send error as json
-  .catch((error) => {
-    console.log(error);
-    res.json({ error });
-  });  
-});  
+// app.post("/cocktails", (req, res) => {
+//   // create the new fruit
+//   Cocktail.create(req.body)
+//   .then((cocktails) => {
+//     // redirect user to index page if successfully created item
+//     res.redirect("/cocktails");
+//   })  
+//   // send error as json
+//   .catch((error) => {
+//     console.log(error);
+//     res.json({ error });
+//   });  
+// });  
 
-  app.put("/:id", (req, res) => {
-    // get the id from params
-    const id = req.params.id;
-    // update the cocktail
-    Cocktail.findByIdAndUpdate(id, req.body, { new: true })
-      .then((cocktail) => {
-        // redirect to main page after updating
-        res.redirect("/cocktails");
-      })  
-      // send error as json
-      .catch((error) => {
-        console.log(error);
-        res.json({ error });
-      });  
-  });    
+// duplicate?
+  // app.put("/:id", (req, res) => {
+  //   // get the id from params
+  //   const id = req.params.id;
+  //   // update the cocktail
+  //   Cocktail.findByIdAndUpdate(id, req.body, { new: true })
+  //     .then((cocktail) => {
+  //       // redirect to main page after updating
+  //       res.redirect("/cocktails");
+  //     })  
+  //     // send error as json
+  //     .catch((error) => {
+  //       console.log(error);
+  //       res.json({ error });
+  //     });  
+  // });    
 
-app.post('/signup', async (req, res) => {
-  // console.log('this is initial req.body in signup', req.body)
-  // first encrypt our password
-  req.body.password = await bcrypt.hash(
-      req.body.password, 
-      await bcrypt.genSalt(15)
-  )    
-  // console.log('req.body after hash', req.body)
-  // create a new user
-  User.create(req.body)
-      // if created successfully redirect to login
-      .then(user => {
-          res.redirect('/users/login')
-      })    
-      // if an error occurs, send err
-      .catch(error => {
-          console.log(error)
-          res.json(error)
-      })    
-})      
+
+  //duplicate
+// app.post('/signup', async (req, res) => {
+//   // console.log('this is initial req.body in signup', req.body)
+//   // first encrypt our password
+//   req.body.password = await bcrypt.hash(
+//       req.body.password, 
+//       await bcrypt.genSalt(15)
+//   )    
+//   // console.log('req.body after hash', req.body)
+//   // create a new user
+//   User.create(req.body)
+//       // if created successfully redirect to login
+//       .then(user => {
+//           res.redirect('/users/login')
+//       })    
+//       // if an error occurs, send err
+//       .catch(error => {
+//           console.log(error)
+//           res.json(error)
+//       })    
+// })      
 
 
 
@@ -338,83 +341,84 @@ app.post('/signup', async (req, res) => {
 
 // edit route ('/route/:id/edit') - method=GET
 // edit route
-app.get("/cocktails/:id/edit", (req, res) => {
-  // get the id from params
-  const id = req.params.id;
-  // get the fruit from the database
-  Cocktail.findById(id)
-    .then((cocktail) => {
-      // render edit page and send fruit data
-      res.render("cocktails/edit.liquid", {cocktail});
-    })
-    // send error as json
-    .catch((error) => {
-      console.log(error);
-      res.json({ error });
-    });
-});
+// app.get("/cocktails/:id/edit", (req, res) => {
+//   // get the id from params
+//   const id = req.params.id;
+//   // get the fruit from the database
+//   Cocktail.findById(id)
+//     .then((cocktail) => {
+//       // render edit page and send fruit data
+//       res.render("cocktails/edit.liquid", {cocktail});
+//     })
+//     // send error as json
+//     .catch((error) => {
+//       console.log(error);
+//       res.json({ error });
+//     });
+// });
 
+//duplicate
 // get to render the login form
-app.get('/login', (req, res) => {
-  res.render('users/login')
-})
-// post to send the login info(and create a session)
-app.post('/login', async (req, res) => {
-  console.log('request object', req)
-  // get the data from the request body
-  const { username, password } = req.body
-  // then we search for the user
-  User.findOne({ username })
-      .then(async (user) => {
-          // check if the user exists
-          if (user) {
-              // compare the password
-              // bcrypt.compare evaluates to a truthy or a falsy value
-              const result = await bcrypt.compare(password, user.password)
+// app.get('/login', (req, res) => {
+//   res.render('users/login')
+// })
+// // post to send the login info(and create a session)
+// app.post('/login', async (req, res) => {
+//   console.log('request object', req)
+//   // get the data from the request body
+//   const { username, password } = req.body
+//   // then we search for the user
+//   User.findOne({ username })
+//       .then(async (user) => {
+//           // check if the user exists
+//           if (user) {
+//               // compare the password
+//               // bcrypt.compare evaluates to a truthy or a falsy value
+//               const result = await bcrypt.compare(password, user.password)
 
-              if (result) {
-                  // then we'll need to use the session object
-                  // store some properties in the session
-                  req.session.username = username
-                  req.session.loggedIn = true
-                  // redirect to /fruits if login is successful
-                  res.redirect('/ingredients')
-              } else {
-                  // send an error if the password doesnt match
-                  res.json({ error: 'username or password incorrect'})
+//               if (result) {
+//                   // then we'll need to use the session object
+//                   // store some properties in the session
+//                   req.session.username = username
+//                   req.session.loggedIn = true
+//                   // redirect to /fruits if login is successful
+//                   res.redirect('/ingredients')
+//               } else {
+//                   // send an error if the password doesnt match
+//                   res.json({ error: 'username or password incorrect'})
 
-              }
-          } else {
-              // send an error if the user doesnt exist
-              res.json({ error: 'user does not exist' })
-          }
-      })
-      // catch any other errors that occur
-      .catch(error => {
-          console.log(error)
-          res.json(error)
-      })
-})
+//               }
+//           } else {
+//               // send an error if the user doesnt exist
+//               res.json({ error: 'user does not exist' })
+//           }
+//       })
+//       // catch any other errors that occur
+//       .catch(error => {
+//           console.log(error)
+//           res.json(error)
+//       })
+// })
 
 
 
 // show route ('/route/:id') - method=GET
 // show route
-app.get("/cocktails/:id", (req, res) => {
-  // get the id from params
-  const id = req.params.id;
+// app.get("/cocktails/:id", (req, res) => {
+//   // get the id from params
+//   const id = req.params.id;
 
-  // find the particular fruit from the database
-  Cocktail.findById(id)
-    .then((cocktail) => {
-      // render the template with the data from the database
-      res.render("cocktails/show.liquid", { cocktail });
-    })
-    .catch((error) => {
-      console.log(error);
-      res.json({ error });
-    });
-});
+//   // find the particular fruit from the database
+//   Cocktail.findById(id)
+//     .then((cocktail) => {
+//       // render the template with the data from the database
+//       res.render("cocktails/show.liquid", { cocktail });
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//       res.json({ error });
+//     });
+// });
 
 
 

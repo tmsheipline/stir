@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
 })
 // two sign up routes
 // get to render the signup form
-router.get('/signup', (req, res) => {
+router.get('/user/signup', (req, res) => {
     res.render('users/signup')
 })
 // post to send the signup info
@@ -44,6 +44,9 @@ router.post('/signup', async (req, res) => {
             res.json(error)
         })
 })
+ 
+
+
 
 // two login routes
 // get to render the login form
