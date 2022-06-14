@@ -217,3 +217,7 @@ input[type="submit" i] {
     border-radius: 50%;
     background-color: var(--header)
 }
+
+.open-tag{
+    text-decoration: underline;
+}
