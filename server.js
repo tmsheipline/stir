@@ -248,21 +248,38 @@ app.put("/cocktails/:id", (req, res) => {
 
 
 
+
 // create route ('/route') - method=POST
 // create route
 app.post("/cocktails", (req, res) => {
   // create the new fruit
   Cocktail.create(req.body)
-    .then((cocktails) => {
-      // redirect user to index page if successfully created item
-      res.redirect("/cocktails");
-    })
-    // send error as json
-    .catch((error) => {
-      console.log(error);
-      res.json({ error });
-    });
+  .then((cocktails) => {
+    // redirect user to index page if successfully created item
+    res.redirect("/cocktails");
+  })
+  // send error as json
+  .catch((error) => {
+    console.log(error);
+    res.json({ error });
+  });
 });
+
+  app.put("/:id", (req, res) => {
+    // get the id from params
+    const id = req.params.id;
+    // update the cocktail
+    Cocktail.findByIdAndUpdate(id, req.body, { new: true })
+      .then((cocktail) => {
+        // redirect to main page after updating
+        res.redirect("/cocktails");
+      })
+      // send error as json
+      .catch((error) => {
+        console.log(error);
+        res.json({ error });
+      });
+  });
 
 app.post('/users/signup', async (req, res) => {
   // console.log('this is initial req.body in signup', req.body)
