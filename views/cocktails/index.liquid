@@ -1,14 +1,25 @@
 {% layout "layout.liquid" %} {% block content %}
+
 <h1 class="favcocktails">Favorite Cocktails</h1>
+
 <div class="fav-drinks-container">
   {% for cocktail in cocktails %}
-  <div class="fav-drinks">
+    <div class="fav-drinks">
+      <br>
+      <a href="/cocktails/{{ cocktail._id }}" class="drinkname">
+        <h4>{{cocktail.name}}</h4><br>
+        <img src="{{cocktail.image}}" class="cocktail-images" alt="Image of Cocktail"></a> 
+      </div>
+{% comment %} seed data {% endcomment %}
+  {% comment %} <div class="fav-drinks">
         <br>
         <a href="/cocktails/{{ cocktail._id }}" class="drinkname">
           <h4>{{cocktail.name}}</h4><br>
           <img src="{{cocktail.image}}" class="cocktail-images" alt="Image of Cocktail"></a> 
         </div>
-  {% endfor %}
+        {% endcomment %}
+  {% endfor %} 
 </div>
 <a href="/cocktails/new"><button>Add New Cocktail</button></a>
+
 {% endblock %}

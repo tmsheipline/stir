@@ -184,7 +184,7 @@ app.get("/ingredients", (req, res) => {
         res.json({ error });
       });
   });
-
+//cocktails
   app.get("/cocktails", (req, res) => {
     // find all the ingredients
     Cocktail.find({})
@@ -201,6 +201,19 @@ app.get("/ingredients", (req, res) => {
   app.get('/users/signup', (req, res) => {
     res.render('users/signup')
 })
+//suggested
+app.get("/suggested", (req, res) => {
+  // find all the ingredients / API??
+  Cocktail.find({})
+    // render a template after they are found
+    .then((cocktails) => {
+      res.render("cocktails/suggested.liquid", { cocktails });
+    })
+    // send error as json if they aren't
+    .catch((error) => {
+      res.json({ error });
+    });
+});
 
 
 
