@@ -2,7 +2,7 @@
 // Import Dependencies
 ////////////////////////////////////////////
 const express = require('express')
-const User = require('./models/user')
+const User = require('../models/user')
 const bcrypt = require('bcryptjs')
 
 ////////////////////////////////////////////
@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
 })
 // two sign up routes
 // get to render the signup form
-router.get('/user/signup', (req, res) => {
+router.get('/signup', (req, res) => {
     res.render('users/signup')
 })
 // post to send the signup info
@@ -36,7 +36,7 @@ router.post('/signup', async (req, res) => {
     User.create(req.body)
         // if created successfully redirect to login
         .then(user => {
-            res.redirect('/user/login')
+            res.redirect('/users/login')
         })
         // if an error occurs, send err
         .catch(error => {

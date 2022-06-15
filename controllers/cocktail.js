@@ -2,7 +2,7 @@
 // Import Dependencies
 ////////////////////////////////////////////
 const express = require('express')
-const Cocktail = require('./models/cocktail')
+const Cocktail = require('../models/cocktail')
 
 ////////////////////////////////////////////
 // Create router
@@ -27,7 +27,7 @@ router.use((req, res, next) => {
 
 
 // index route ('/route') - method=GET
-router.get("/cocktails", (req, res) => {
+router.get("/", (req, res) => {
     // find all the ingredients
     Cocktail.find({})
       // render a template after they are found
@@ -46,7 +46,7 @@ router.get("/cocktails", (req, res) => {
       });  
 
 // delete route ('/route/:id') - method=DELETE
-router.delete("/cocktails/:id", (req, res) => {
+router.delete("/:id", (req, res) => {
     // get the id from params
     const id = req.params.id;
     // delete the cocktail
@@ -63,7 +63,7 @@ router.delete("/cocktails/:id", (req, res) => {
   });  
   
   // update route ('/route/:id') - method=PUT
-router.put("/cocktails/:id", (req, res) => {
+router.put("/:id", (req, res) => {
     // get the id from params
     const id = req.params.id;
     // update the cocktail
@@ -80,7 +80,7 @@ router.put("/cocktails/:id", (req, res) => {
   });  
   
 // create route ('/route') - method=POST
-router.post("/cocktails", (req, res) => {
+router.post("/", (req, res) => {
     // create the new fruit
     Cocktail.create(req.body)
     .then((cocktails) => {
@@ -95,7 +95,7 @@ router.post("/cocktails", (req, res) => {
   });  
 
   // edit route ('/route/:id/edit') - method=GET
-router.get("/cocktails/:id/edit", (req, res) => {
+router.get("/:id/edit", (req, res) => {
     // get the id from params
     const id = req.params.id;
     // get the fruit from the database
@@ -110,9 +110,9 @@ router.get("/cocktails/:id/edit", (req, res) => {
         res.json({ error });
       });
   });
-  
+
   // show route ('/route/:id') - method=GET
-  app.get("/cocktails/:id", (req, res) => {
+  router.get("/:id", (req, res) => {
     // get the id from params
     const id = req.params.id;
   
@@ -127,3 +127,5 @@ router.get("/cocktails/:id/edit", (req, res) => {
         res.json({ error });
       });
   });
+
+  module.exports = router

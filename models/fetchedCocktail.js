@@ -1,7 +1,7 @@
 /////////////////////////////////
 // import dependencies
 /////////////////////////////////
-const mongoose = require('mongoose')
+const mongoose = require('./connection')
 
 /////////////////////////////////
 // define our user model
@@ -12,8 +12,8 @@ const { Schema, model } = mongoose
 
 //make cocktail schema
 const fetchedCocktailSchema = new Schema({
-    name: String,
-    ingredients: Array,
+    APIname: String,
+    APIingredients: Array,
   });
 
 //make cocktail model

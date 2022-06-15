@@ -5,30 +5,12 @@ require("dotenv").config(); // Load ENV Variables
 const express = require("express"); // import express
 const morgan = require("morgan"); //import morgan
 const methodOverride = require("method-override");
-const mongoose = require("mongoose");
 const path = require("path");
-const Ingredient = require('./models/ingredient')
-const User = require('./models/user')
-const Cocktail = require('./models/cocktail')
-const bcrypt = require('bcryptjs')
-
-/*========================================
-    Database Connection
-========================================*/
-const DATABASE_URL = process.env.DATABASE_URL;
-const CONFIG = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-};
-
-// Establish Connection
-mongoose.connect(DATABASE_URL, CONFIG);
-
-// Events for when connection opens/disconnects/errors
-mongoose.connection
-  .on("open", () => console.log("Connected to Mongoose"))
-  .on("close", () => console.log("Disconnected from Mongoose"))
-  .on("error", (error) => console.log(error));
+const MongoStore = require('connect-mongo')
+const session = require('express-session')
+const IngredientRouter = require('./controllers/ingredient')
+const UserRouter = require('./controllers/user')
+const CocktailRouter = require('./controllers/cocktail')
 
 /*========================================
     Create Express App Object Bind Liquid Templating Engine
@@ -43,9 +25,32 @@ app.use(methodOverride("_method")); // override for put and delete requests from
 app.use(express.urlencoded({ extended: true })); // parse urlencoded request bodies
 app.use(express.static("public")); // serve files from public statically
 
+app.use(session({secret: process.env.SECRET, store: MongoStore.create({ mongoUrl: process.env.DATABASE_URL}),
+saveUninitialized: true,
+resave: false,
+}))
+
 /*========================================
-    Routes
+Routes
 ========================================*/
+app.use('/ingredients', IngredientRouter)
+app.use('/users', UserRouter)
+app.use('/cocktails', CocktailRouter)
+
+app.get("/", (req, res) => {
+    res.render("index.liquid");
+  });
+
+
+/*========================================
+ Server Listener
+========================================*/
+const PORT = process.env.PORT;
+app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+
+
+
+
 //SEED Data
 app.get("/drinks/seed", (req, res) => {
     // array of starter ingredients
@@ -166,9 +171,6 @@ app.get("/drinks/seed", (req, res) => {
 
 
 
-  app.get("/", (req, res) => {
-      res.render("index.liquid");
-    });
   
 // I-N-D-U-C-E-S
 // index route ('/route') - method=GET
@@ -423,10 +425,6 @@ app.get("/drinks/seed", (req, res) => {
 
 
 
-/*========================================
- Server Listener
-========================================*/
-const PORT = process.env.PORT;
-app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+
 
 

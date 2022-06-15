@@ -1,7 +1,7 @@
 /////////////////////////////////
 // import dependencies
 /////////////////////////////////
-const mongoose = require('mongoose')
+const mongoose = require('./connection')
 
 /////////////////////////////////
 // define our user model

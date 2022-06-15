@@ -2,7 +2,7 @@
 // Import Dependencies
 ////////////////////////////////////////////
 const express = require('express')
-const Ingredient = require('./models/ingredients')
+const Ingredient = require('../models/ingredient')
 
 ////////////////////////////////////////////
 // Create router
@@ -29,7 +29,7 @@ router.use((req, res, next) => {
 // Routes
 ////////////////////////////////////////////
 // index route ('/route') - method=GET
-router.get("/ingredients", (req, res) => {
+router.get("/", (req, res) => {
     // find all the ingredients
     Ingredient.find({})
       // render a template after they are found
