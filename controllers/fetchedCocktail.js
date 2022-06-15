@@ -61,7 +61,7 @@ router.post('/', (req,res) => {
     .then((jsonData) => {
         console.log(`here is the data`, jsonData)
         const cocktailData = jsonData
-        res.render('cocktails/fetchedCocktail', {cocktailData})
+        res.render('cocktails/fetchedCocktail', {cocktailData, username})
     })
     .catch((error) => {
         console.log(error)

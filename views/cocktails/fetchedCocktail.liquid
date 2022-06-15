@@ -4,17 +4,20 @@
       <div class='selected-cocktail-list'>
             {% for drink in drinks%}
             <h4>{{drink.strDrink}}<br>
-                {{drink.idDrink}}
+            {{drink.idDrink}}
           </h4>
-            <img src="{{drink.strDrinkThumb}}" alt=""/> <br> <br>
-
+          <img src="{{drink.strDrinkThumb}}" id="cocktail-image" alt="No drink found - Search again"/> <br> <br>
+          {%if drink == 'None Found'%}
+          NO DRINK FOUND - TRY DIFFERENT INGREDIENTS
+          {%endif%}
+          <form action="">
+          <input type="submit" value="Save Cocktail to my cocktails" />
+        </form>
           {%endfor%}
         </div>
-
+        
           
-              </fieldset>
-              <input type="submit" value="Save Cocktail to my cocktails" />
-            </form>
+              
 
 
             <button class="" onclick=location.href="/cocktails/new">Create Your Own Drink</button>

@@ -36,11 +36,18 @@
     {% endfor %}
   </article>
 
-  <button onclick="lockChoices()">Confirm selected Ingredients</button>
+ {% comment %} working {% endcomment %}
+  {% comment %} <button onclick="lockChoices()">Confirm selected Ingredients</button>
   <form action="/fetchedCocktails/API" method='POST'>
     <label></label>
     <input type="hidden" id="IngArray" name="IngArray" value=>
     <input type="submit" value="Search for cocktails">
+  </form> {% endcomment %}
+
+  <form action="/fetchedCocktails/API" method='POST'>
+    {% comment %} <input type="button" onclick="lockChoices()" value='Search for cocktails' id="IngArray" name="IngArray"> {% endcomment %}
+    {% comment %} <input type="button" onclick="lockChoices()" value='Search for cocktails'> {% endcomment %}
+    <input type="submit" onclick="lockChoices()" id="IngArray" name="IngArray"  value="Search for cocktails">
   </form>
 
 {% comment %} <form action="/fetchedCocktail" method="POST" class="seach-cocktail-form">

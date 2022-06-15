@@ -13,6 +13,9 @@ const UserRouter = require('./controllers/user')
 const CocktailRouter = require('./controllers/cocktail');
 const FetchedCocktailRouter = require("./controllers/fetchedCocktail");
 
+// Activate below for seed data
+// const Ingredient = require('./models/ingredient')
+
 /*========================================
     Create Express App Object Bind Liquid Templating Engine
 ========================================*/
@@ -65,7 +68,7 @@ app.get("/drinks/seed", (req, res) => {
       { name: "Gin", image: "https://www.thecocktaildb.com/images/ingredients/gin-Medium.png"},
       { name: "Cognac", image: "https://www.thecocktaildb.com/images/ingredients/cognac-Medium.png"},
       { name: "Rum", image: "https://www.thecocktaildb.com/images/ingredients/rum-Medium.png"},
-      { name: "Grenadine", image: "https://www.thecocktaildb.com/images/ingredients/irish%20cream-Medium.png"},
+      { name: "Grenadine", image: "https://www.thecocktaildb.com/images/ingredients/grenadine-Medium.png"},
       { name: "Irish Creme", image: "https://www.thecocktaildb.com/images/ingredients/irish%20cream-Medium.png"},
       { name: "Kahlua", image: "https://www.thecocktaildb.com/images/ingredients/kahlua-Medium.png"},
       { name: "Amaretto", image: "https://www.thecocktaildb.com/images/ingredients/amaretto-Medium.png"},
