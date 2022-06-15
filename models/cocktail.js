@@ -17,7 +17,8 @@ const cocktailsSchema = new Schema({
     measurements: Array,
     served: String,
     preparation: String,
-    image: String
+    image: String,
+    username: String,
   });
 
 //make cocktail model

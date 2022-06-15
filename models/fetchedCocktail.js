@@ -12,8 +12,10 @@ const { Schema, model } = mongoose
 
 //make cocktail schema
 const fetchedCocktailSchema = new Schema({
-    APIname: String,
-    APIingredients: Array,
+    strDrink: String,
+    strDrinkThumb: String,
+    idDrink: String,
+    username: String,
   });
 
 //make cocktail model

@@ -21,7 +21,7 @@ router.use((req, res, next) => {
 		next()
 	} else {
 		// if they're not logged in, send them to the login page
-		res.redirect('/user/login')
+		res.redirect('/users/login')
 	}
 })
 
@@ -29,18 +29,42 @@ router.use((req, res, next) => {
 // Routes
 ////////////////////////////////////////////
 // index route ('/route') - method=GET
+/*========================================
+ Post Route API
+========================================*/
+router.post('/', (req,res) => {
+  const ingArray = req.body.ingArray
+
+  const requestURL = `https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=${ingArray}`
+
+  fetch(requestURL)
+  .then((apiResponse) => {
+      return apiResponse.json()
+  })
+  .then((jsonData) => {
+      console.log(`here is the data`, jsonData)
+      const cocktailData = jsonData
+      res.render('suggested', {cocktailData})
+  })
+  .catch((error) => {
+      console.log(error)
+  })
+})
 router.get("/", (req, res) => {
+  let username = req.session.username
+  let userImage = req.session.userImage
     // find all the ingredients
     Ingredient.find({})
       // render a template after they are found
       .then((ingredients) => {
-        res.render("ingredients/index.liquid", { ingredients });
+        res.render("ingredients/index.liquid", { ingredients, username, userImage });
       })
       // send error as json if they aren't
       .catch((error) => {
         res.json({ error });
       });
   });
+
 
 
 

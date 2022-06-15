@@ -10,7 +10,8 @@ const MongoStore = require('connect-mongo')
 const session = require('express-session')
 const IngredientRouter = require('./controllers/ingredient')
 const UserRouter = require('./controllers/user')
-const CocktailRouter = require('./controllers/cocktail')
+const CocktailRouter = require('./controllers/cocktail');
+const FetchedCocktailRouter = require("./models/fetchedCocktail");
 
 /*========================================
     Create Express App Object Bind Liquid Templating Engine
@@ -36,9 +37,10 @@ Routes
 app.use('/ingredients', IngredientRouter)
 app.use('/users', UserRouter)
 app.use('/cocktails', CocktailRouter)
+app.use('/fetchedCocktails', FetchedCocktailRouter)
 
 app.get("/", (req, res) => {
-    res.render("index.liquid");
+    res.render("index");
   });
 
 

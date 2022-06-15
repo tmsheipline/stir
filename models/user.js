@@ -17,6 +17,7 @@ const userSchema = new Schema({
         required: true,
         unique: true
     },
+    userImage: {type: String, default:'https://tse4.mm.bing.net/th?id=OIP.b61rHwfyvldBI6kQRI78jgHaHa&pid=Api&P=0&w=162&h=162'},
     password: {
         type: String,
         required: true

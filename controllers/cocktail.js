@@ -21,28 +21,44 @@ router.use((req, res, next) => {
 		next()
 	} else {
 		// if they're not logged in, send them to the login page
-		res.redirect('/user/login')
+		res.redirect('/users/login')
 	}
 })
+
+/*========================================
+ ROUTES
+========================================*/
+// new route ('/route/new') - method=GET
+router.get("/suggested", (req, res) => {
+  let username = req.session.username
+  let userImage = req.session.userImage
+  res.render(("cocktails/suggested.liquid"), {username, userImage});
+});  
 
 
 // index route ('/route') - method=GET
 router.get("/", (req, res) => {
-    // find all the ingredients
-    Cocktail.find({})
+  let username = req.session.username
+  let userImage = req.session.userImage
+    // find all the cocktails
+    Cocktail.find({username: req.session.username, userImage: req.session.userImage})
       // render a template after they are found
       .then((cocktails) => {
-        res.render("cocktails/index.liquid", { cocktails });
+        res.render("cocktails/index.liquid", { cocktails, username, userImage });
       })
       // send error as json if they aren't
       .catch((error) => {
         res.json({ error });
       });  
     });    
+
+
     
 // new route ('/route/new') - method=GET
-    router.get("/cocktails/new", (req, res) => {
-        res.render("cocktails/new.liquid");
+    router.get("/new", (req, res) => {
+      let username = req.session.username
+      let userImage = req.session.userImage
+        res.render(("cocktails/new.liquid"), {username, userImage});
       });  
 
 // delete route ('/route/:id') - method=DELETE
@@ -81,7 +97,9 @@ router.put("/:id", (req, res) => {
   
 // create route ('/route') - method=POST
 router.post("/", (req, res) => {
-    // create the new fruit
+   // add username to req.body to track related user
+   req.body.username = req.session.username;
+    // create the new cocktail
     Cocktail.create(req.body)
     .then((cocktails) => {
       // redirect user to index page if successfully created item

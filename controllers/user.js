@@ -55,9 +55,9 @@ router.get('/login', (req, res) => {
 })
 // post to send the login info(and create a session)
 router.post('/login', async (req, res) => {
-    console.log('request object', req)
+    // console.log('request object', req)
     // get the data from the request body
-    const { username, password } = req.body
+    const { username, password, userImage } = req.body
     // then we search for the user
     User.findOne({ username })
         .then(async (user) => {
@@ -71,12 +71,13 @@ router.post('/login', async (req, res) => {
                     // then we'll need to use the session object
                     // store some properties in the session
                     req.session.username = username
+                    req.session.userImage = userImage
                     req.session.loggedIn = true
-                    // redirect to /fruits if login is successful
+                    // redirect to /ingredients if login is successful
                     res.redirect('/ingredients')
                 } else {
                     // send an error if the password doesnt match
-                    res.json({ error: 'username or password incorrect'})
+                    res.json({ error: 'password incorrect'})
 
                 }
             } else {
@@ -95,7 +96,6 @@ router.post('/login', async (req, res) => {
 router.get('/logout', (req, res) => {
     // destroy the session and redirect to the main page
     req.session.destroy(err => {
-        console.log('this is err in logout', err)
         res.redirect('/')
     })
 })

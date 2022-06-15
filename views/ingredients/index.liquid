@@ -32,9 +32,8 @@
     {% endfor %}
   </article>
 
-<form action="/ingredients" class="seach-cocktail-form">
-  <input type="submit" name='recipe' value="Search for cocktails">
+<form action="/fetchedCocktail" method="POST" class="seach-cocktail-form">
+  <input type="submit" name='ingArray' placeholder="Insert ingredients to search">
 </form>
-<a href="/user/logout"><button>Logout</button></a>
 
 {% endblock %}
