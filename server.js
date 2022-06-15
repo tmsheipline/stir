@@ -11,7 +11,7 @@ const session = require('express-session')
 const IngredientRouter = require('./controllers/ingredient')
 const UserRouter = require('./controllers/user')
 const CocktailRouter = require('./controllers/cocktail');
-const FetchedCocktailRouter = require("./models/fetchedCocktail");
+const FetchedCocktailRouter = require("./controllers/fetchedCocktail");
 
 /*========================================
     Create Express App Object Bind Liquid Templating Engine

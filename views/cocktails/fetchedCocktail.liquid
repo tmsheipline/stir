@@ -1,35 +1,23 @@
 {% layout "layout.liquid" %} {% block content %}
 
 <h1>Suggested Cocktail Recipe based on ingredients you have</h1>
-      <div>
-        <article>
-            //For loop to loop through API results
-          <h2>
-            Name: {{}} <br>
-            Link: ?????
-          </h2>
+      <div class='selected-cocktail-list'>
+            {% for drink in drinks%}
+            <h4>{{drink.strDrink}}<br>
+                {{drink.idDrink}}
+          </h4>
+            <img src="{{drink.strDrinkThumb}}" alt=""/> <br> <br>
+
+          {%endfor%}
         </div>
 
-
-          <div>
-            <form action="/fetchedCocktail" method="post">
-              <input type="text" name='ingArray' value='ingArray'>
-              <fieldset>
-                <legend>??? </legend>
-                <label>
-                  APIName??:<input type="text" name="name" placeholder="Enter cocktail name" />
-                </label>
-                <label>
-                  API??Image:<input type="text" name='image' placeholder="Enter cocktail image URL">
-                </label>
-                <label>
-                  API??Id:<input type="text" name='image' placeholder="Enter cocktail image URL">
-                </label>
           
               </fieldset>
               <input type="submit" value="Save Cocktail to my cocktails" />
             </form>
-          </div>
+
+
+            <button class="" onclick=location.href="/cocktails/new">Create Your Own Drink</button>
 
 
 
@@ -62,6 +50,6 @@
           </form> {% endcomment %}
           {% comment %} <a href="/cocktails/"><button>Back to My Cocktails</button></a> {% endcomment %}
           
-        </article>
+      
       
 {% endblock %}

@@ -38,7 +38,7 @@ router.get("/", (req, res) => {
       fetchedCocktail.find({username: req.session.username})
         // render a template after they are found
         .then((fetchedCocktail) => {
-          res.render("/cocktails/fetchedCocktail", { fetchedCocktails, username, userImage });
+          res.render("/cocktails/fetchedCocktail.liquid", { fetchedCocktails, username, userImage });
         })
         // send error as json if they aren't
         .catch((error) => {
@@ -61,7 +61,26 @@ router.post('/', (req,res) => {
     .then((jsonData) => {
         console.log(`here is the data`, jsonData)
         const cocktailData = jsonData
-        res.render('/cocktails/fetchedCocktail', {cocktailData})
+        res.render('cocktails/fetchedCocktail', {cocktailData})
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+})
+
+router.post('/API', (req,res) => {
+    console.log(req.body.IngArray)
+    const requestURL = `https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=${req.body.IngArray}`
+
+    fetch(requestURL)
+    .then((apiResponse) => {
+        return apiResponse.json()
+    })
+    .then((jsonData) => {
+        console.log(`here is the data`, jsonData)
+        const cocktailData = jsonData
+        const drinks = cocktailData.drinks
+        res.render('cocktails/fetchedCocktail', {drinks})
     })
     .catch((error) => {
         console.log(error)

@@ -22,6 +22,10 @@
       ingArray.push(name)
       console.log(ingArray)
      }
+
+     function lockChoices(){
+      document.getElementById('IngArray').value= ingArray
+    }
     </script>
     {% for ingredient in ingredients %}
       
@@ -32,8 +36,15 @@
     {% endfor %}
   </article>
 
-<form action="/fetchedCocktail" method="POST" class="seach-cocktail-form">
-  <input type="submit" name='ingArray' placeholder="Insert ingredients to search">
-</form>
+  <button onclick="lockChoices()">Confirm selected Ingredients</button>
+  <form action="/fetchedCocktails/API" method='POST'>
+    <label></label>
+    <input type="hidden" id="IngArray" name="IngArray" value=>
+    <input type="submit" value="Search for cocktails">
+  </form>
+
+{% comment %} <form action="/fetchedCocktail" method="POST" class="seach-cocktail-form">
+  <input type="hidden" name='ingArray'>
+</form> {% endcomment %}
 
 {% endblock %}
