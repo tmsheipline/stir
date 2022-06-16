@@ -43,6 +43,8 @@ const cocktailRecipeSchema = new Schema({
 //make cocktail model
 const CocktailRecipe = model("CocktailRecipe", cocktailRecipeSchema);
 
+let cocktailRecipeArr = []
+
 /////////////////////////////////
 // export our user model
 /////////////////////////////////

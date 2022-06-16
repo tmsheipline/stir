@@ -2,30 +2,40 @@
 
 <h1 class="favcocktails">Saved Cocktails</h1>
 <div class="save-cocktails-btns">
-<a href="/cocktails/new"><button>Add New Cocktail</button></a>
-<button class="" onclick=location.href="/ingredients">Back to Ingredients</button>
+  <a href="/cocktails/new"><button>Add New Cocktail</button></a>
+  <button class="" onclick="location.href" ="/ingredients">
+    Back to Ingredients
+  </button>
 </div>
 <div class="fav-drinks-container">
   {% for cocktail in cocktails %}
-    <div class="fav-drinks">
-      <br>
-      <a href="/cocktails/{{ cocktail._id }}" class="drinkname">
-        <h4>{{cocktail.name}}</h4><br>
-        <img src="{{cocktail.image}}" class="cocktail-images" alt="Image of Cocktail"></a> 
-        <form action="/cocktails/{{ idDrink }}?_method=DELETE" method="POST">
-          <input type="submit" value="Remove from My Cocktails List" />
-        </form>
-      </div>
-{% comment %} seed data {% endcomment %}
-  {% comment %} <div class="fav-drinks">
-        <br>
-        <a href="/cocktails/{{ cocktail._id }}" class="drinkname">
-          <h4>{{cocktail.name}}</h4><br>
-          <img src="{{cocktail.image}}" class="cocktail-images" alt="Image of Cocktail"></a> 
-        </div>
-        {% endcomment %}
-  {% endfor %} 
+  <div class="fav-drinks">
+    <br />
+    <a href="/cocktails/{{ cocktail._id }}" class="drinkname">
+      <h4>{{ cocktail.name }}</h4>
+      <br />
+      <img
+        src="{{ cocktail.image }}"
+        class="cocktail-images"
+        alt="Image of Cocktail"
+    /></a>
+    <form action="/cocktails/{{ cocktail.id }}?_method=DELETE" method="POST">
+      <input type="submit" value="Remove from My Cocktails List" />
+    </form>
+  </div>
+  {% comment %} seed data {% endcomment %} {% comment %}
+  <div class="fav-drinks">
+    <br />
+    <a href="/cocktails/{{ cocktail._id }}" class="drinkname">
+      <h4>{{ cocktail.name }}</h4>
+      <br />
+      <img
+        src="{{ cocktail.image }}"
+        class="cocktail-images"
+        alt="Image of Cocktail"
+    /></a>
+  </div>
+  {% endcomment %} {% endfor %}
 </div>
-
 
 {% endblock %}
