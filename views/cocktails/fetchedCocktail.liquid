@@ -8,44 +8,15 @@
       <div class='selected-cocktail-container'>
             {% for drink in drinks%}
               <div class='selected-cocktail'>
-            <h4>{{drink.strDrink}}<br> </h4>
+            <h4> <a href="/fetchedCocktails/{{drink.idDrink}} ">{{drink.strDrink}}</a><br> </h4>
             <img src="{{drink.strDrinkThumb}}" id="cocktail-image" alt=""/></a> <br>
-            <a href="/fetchedCocktails/{{drink.idDrink}} ">View Recipe Details</a>
+            <a href="/fetchedCocktails/{{drink.idDrink}} "></a>
           {%if drink == 'None Found'%}
           NO DRINK FOUND - TRY DIFFERENT INGREDIENTS
           {%endif%}
-
-          <form action="/cocktails" method='POST'>
-            <input type="submit" value="Save Cocktail to my cocktails" />
             <br>
           </div>
-        </form>
+  
         {%endfor%}
-        </div>
-        
-          
-          
-        {% comment %} Image<img src="{{}}" alt=""> <br>
-        Ingredients: ?????? <br>
-        {% for ingredients in cocktail.ingredients%}
-            -{{ingredients }}-
-            {%endfor%} 
-            <br> <br>
-          Measurements: ???????? <br>
-          {% for measurements in cocktail.measurements%}
-            -{{measurements}}-
-            {%endfor%}
-        <br> <br>
-          Preparation: ???????? <br>
-          {{cocktail.preparation}} <br> <br>
-        
-        </h3> {% endcomment %}
-        {% comment %} <a href="/cocktails/{{cocktail._id}}/edit"><button>Edit {{cocktail.name}}</button></a>
-          <form action="/cocktails/{{ cocktail._id }}?_method=DELETE" method="POST">
-            <input type="submit" value="Remove from My Cocktails List" />
-          </form> {% endcomment %}
-          {% comment %} <a href="/cocktails/"><button>Back to My Cocktails</button></a> {% endcomment %}
-          
-      
-      
+        </div>    
 {% endblock %}

@@ -3,6 +3,7 @@
 ////////////////////////////////////////////
 const express = require('express')
 const Cocktail = require('../models/cocktail')
+const FetchedCocktail = require('../models/fetchedCocktail')
 
 ////////////////////////////////////////////
 // Create router
@@ -111,6 +112,16 @@ router.post("/", (req, res) => {
       res.json({ error });
     });  
   });  
+  // FetchedCocktail.create(req.body)
+  // .then((fetchedCocktails) => {
+  //   // redirect user to index page if successfully created item
+  //   res.redirect("/cocktails");
+  // })  
+  // // send error as json
+  // .catch((error) => {
+  //   console.log(error);
+  //   res.json({ error });
+  // });   
 
   // edit route ('/route/:id/edit') - method=GET
 router.get("/:id/edit", (req, res) => {
@@ -133,12 +144,12 @@ router.get("/:id/edit", (req, res) => {
   router.get("/:id", (req, res) => {
     // get the id from params
     const id = req.params.id;
-  
+    let username = req.session.username
     // find the particular fruit from the database
     Cocktail.findById(id)
       .then((cocktail) => {
         // render the template with the data from the database
-        res.render("cocktails/show.liquid", { cocktail });
+        res.render("cocktails/show.liquid", { cocktail,fetchedCocktails,username });
       })
       .catch((error) => {
         console.log(error);

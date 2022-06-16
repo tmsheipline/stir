@@ -3,13 +3,15 @@
 <h1 class="favcocktails">Saved Cocktails</h1>
 <div class="save-cocktails-btns">
   <a href="/cocktails/new"><button>Add New Cocktail</button></a>
-  <button class="" onclick="location.href" ="/ingredients">
+  <button class="save-cocktails-btns" onclick=location.href="/ingredients">
     Back to Ingredients
   </button>
 </div>
 <div class="fav-drinks-container">
+  
   {% for cocktail in cocktails %}
   <div class="fav-drinks">
+    My cocktail Creations
     <br />
     <a href="/cocktails/{{ cocktail._id }}" class="drinkname">
       <h4>{{ cocktail.name }}</h4>
@@ -23,19 +25,30 @@
       <input type="submit" value="Remove from My Cocktails List" />
     </form>
   </div>
-  {% comment %} seed data {% endcomment %} {% comment %}
+  {% endfor %}
+</div>
+
+
+
+<div class="fav-drinks-container">
+  
+  {% for fetchedCocktail in fetchedCocktails %}
   <div class="fav-drinks">
+    Saved cocktail Creations
     <br />
-    <a href="/cocktails/{{ cocktail._id }}" class="drinkname">
-      <h4>{{ cocktail.name }}</h4>
+    <a href="/cocktails/{{  }}" class="drinkname">
+      <h4>{{  }}</h4>
       <br />
       <img
-        src="{{ cocktail.image }}"
+        src="{{  }}"
         class="cocktail-images"
         alt="Image of Cocktail"
     /></a>
+    <form action="/cocktails/{{  }}?_method=DELETE" method="POST">
+      <input type="submit" value="Remove from My Cocktails List" />
+    </form>
   </div>
-  {% endcomment %} {% endfor %}
+  {% endfor %}
 </div>
 
 {% endblock %}
