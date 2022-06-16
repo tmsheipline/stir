@@ -284,5 +284,11 @@ button:hover{
 input{
     margin-bottom: 2em;
 }
+.cocktailShow-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 
 

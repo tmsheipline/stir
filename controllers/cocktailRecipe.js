@@ -26,27 +26,27 @@ router.use((req, res, next) => {
 })
 
 
-/*========================================
- this route to get actual cocktail recipe info
-========================================*/
-router.get('/:drinkId', (req,res) => {
-    const id = req.params.drinkId
-    // console.log(`DRINK ID`,id)
-    const requestURL = `www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
+// /*========================================
+//  this route to get actual cocktail recipe info
+// ========================================*/
+// router.get('/:drinkId', (req,res) => {
+//     const id = req.params.drinkId
+//     // console.log(`DRINK ID`,id)
+//     const requestURL = `www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
 
-    fetch(requestURL)
-    .then((apiResponse) => {
-        return apiResponse.json()
-    })
-    .then((jsonData) => {
-        console.log(`here is the data`, jsonData)
-        const cocktailData = jsonData
-        res.render('cocktails/fetchedCocktail', {recipeData, username})
-    })
-    .catch((error) => {
-        console.log(error)
-    })
-})
+//     fetch(requestURL)
+//     .then((apiResponse) => {
+//         return apiResponse.json()
+//     })
+//     .then((jsonData) => {
+//         console.log(`here is the data`, jsonData)
+//         const cocktailData = jsonData
+//         res.render('cocktails/fetchedCocktail', {recipeData, username})
+//     })
+//     .catch((error) => {
+//         console.log(error)
+//     })
+// })
 
 /*========================================
  Post Route API

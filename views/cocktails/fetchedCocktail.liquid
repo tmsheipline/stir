@@ -9,8 +9,8 @@
             {% for drink in drinks%}
               <div class='selected-cocktail'>
             <h4>{{drink.strDrink}}<br> </h4>
-            <img src="{{drink.strDrinkThumb}}" id="cocktail-image" alt="No drink found - Search again"/></a> <br>
-            <a href="/fetchedCocktails/{{drink.idDrink}}">View Recipe Details</a>
+            <img src="{{drink.strDrinkThumb}}" id="cocktail-image" alt=""/></a> <br>
+            <a href="/fetchedCocktails/{{drink.idDrink}} ">View Recipe Details</a>
           {%if drink == 'None Found'%}
           NO DRINK FOUND - TRY DIFFERENT INGREDIENTS
           {%endif%}

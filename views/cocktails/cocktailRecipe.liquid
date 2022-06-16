@@ -1,26 +1,28 @@
 {% layout "layout.liquid" %} {% block content %}
-      <div class="cocktailShow-container">
+     <h1>Suggested Cocktail Recipe </h1> 
+     <div class="cocktailShow-container">
+        
         <article>
           <h2>
-            {{ strDrink}}
+            {{ recipe.strDrink}}
+            <br>
           </h2>
           <h3>
-        <img src="{{strDrinkThumb}}" class="cocktailShow-image"alt=""> <br>
-        Ingredients: <br>
-        {% for ingredients in cocktail.ingredients%}
-            -{{ingredients}}-
-            {%endfor%} 
-            <br> <br>
-          Measurements: <br>
-          {% for measurements in cocktail.measurements%}
-            -{{measurements}}-
-            {%endfor%}
+        <img src="{{recipe.strDrinkThumb}}" class="cocktailShow-image"alt=""> <br>
+        <br>
+          Ingredients: <br>
+          {{recipe.strMeasure1}}-{{recipe.strIngredient1}}<br>
+          {{recipe.strMeasure2}}-{{recipe.strIngredient2}}<br>
+          {{recipe.strMeasure3}}-{{recipe.strIngredient3}}<br>
+          {{recipe.strMeasure4}}-{{recipe.strIngredient4}}<br>
+          {{recipe.strMeasure5}}-{{recipe.strIngredient5}}<br>
+          {{recipe.strMeasure6}}-{{recipe.strIngredient6}}<br>
         <br> <br>
           Preparation: <br>
-          {{cocktail.preparation}} <br> <br>
+          {{recipe.strInstructions}} <br><br> <br>
         
         </h3>
-        <a href="/cocktails/{{idDrink}}/edit"><button>Edit {{strDrink}}</button></a>
+        <a href="/cocktails/{{idDrink}}/edit"><button>Edit {{recipe.strDrink}}</button></a>
           <form action="/cocktails/{{ idDrink }}?_method=DELETE" method="POST">
             <input type="submit" value="Remove from My Cocktails List" />
           </form>

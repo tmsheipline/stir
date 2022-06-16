@@ -33,9 +33,10 @@ router.use((req, res, next) => {
 ========================================*/
 router.get('/:drinkId', (req,res) => {
     const id = req.params.drinkId
+    let username = req.session.username
     // console.log(`DRINK ID`,id)
     // res.send(id)
-    const requestURL = `www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
+    const requestURL = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
 
     fetch(requestURL)
     .then((apiResponse) => {
@@ -44,8 +45,9 @@ router.get('/:drinkId', (req,res) => {
     })
     .then((jsonData) => {
         console.log(`here is the data`, jsonData)
-        const cocktailData = jsonData
-        res.render('cocktails/fetchedCocktail', {recipeData, username})
+        const recipeData = jsonData
+        const recipe = recipeData.drinks[0]
+        res.render('cocktails/cocktailRecipe',({recipe, username}))
     })
     .catch((error) => {
         console.log(error)
@@ -71,7 +73,7 @@ router.get("/", (req, res) => {
  Post Route API
 ========================================*/
 router.post('/', (req,res) => {
-    // const ingArray = 
+    let username = req.session.username
 
     const requestURL = `https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=vodka,gin`
 
@@ -90,6 +92,7 @@ router.post('/', (req,res) => {
 })
 
 router.post('/API', (req,res) => {
+    let username = req.session.username
     console.log(req.body.IngArray)
     const requestURL = `https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=${req.body.IngArray}`
 
@@ -101,7 +104,7 @@ router.post('/API', (req,res) => {
         console.log(`here is the data`, jsonData)
         const cocktailData = jsonData
         const drinks = cocktailData.drinks
-        res.render('cocktails/fetchedCocktail', {drinks})
+        res.render('cocktails/fetchedCocktail', {drinks, username})
     })
     .catch((error) => {
         console.log(error)
