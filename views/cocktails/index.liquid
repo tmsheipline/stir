@@ -12,6 +12,9 @@
       <a href="/cocktails/{{ cocktail._id }}" class="drinkname">
         <h4>{{cocktail.name}}</h4><br>
         <img src="{{cocktail.image}}" class="cocktail-images" alt="Image of Cocktail"></a> 
+        <form action="/cocktails/{{ idDrink }}?_method=DELETE" method="POST">
+          <input type="submit" value="Remove from My Cocktails List" />
+        </form>
       </div>
 {% comment %} seed data {% endcomment %}
   {% comment %} <div class="fav-drinks">
