@@ -1,11 +1,11 @@
 {% layout "layout.liquid" %} {% block content %}
-      <div>
+      <div class="cocktailShow-container">
         <article>
           <h2>
             {{ cocktail.name }}
           </h2>
           <h3>
-        <img src="{{cocktail.image}}" alt=""> <br>
+        <img src="{{cocktail.image}}" class="cocktailShow-image"alt=""> <br>
         Ingredients: <br>
         {% for ingredients in cocktail.ingredients%}
             -{{ingredients}}-

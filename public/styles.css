@@ -68,9 +68,14 @@ a:hover{
 body{
 	margin:0;
 	padding:0;
-    /* background: url('https://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png') repeat 0 0; */
-    /* background: url('https://img.freepik.com/free-vector/condensation-water-drops-transparent_107791-6308.jpg?size=626&ext=jpg&ga=GA1.2.1169253927.1655138962') repeat 0 0; */
-    background: url('https://img.freepik.com/free-vector/clear-water-drops-dew-dripping-rain-droplets_107791-12567.jpg?size=626&ext=jpg&ga=GA1.2.1169253927.1655138962') repeat 0 0;
+    /* colorful cups */
+    /* background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQYduzRDvd7aq8LO9rEu5WMsaLOfguSuqx3w&usqp=CAU') repeat 0 0; */
+    /* grey drink cups */
+    /* background: url('https://thumbs.dreamstime.com/b/drink-cocktail-glasses-seamless-pattern-background-design-cover-menu-wine-list-restaurant-card-drink-cocktail-137842053.jpg') repeat 0 0; */
+    /* leafish pattern */
+     background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRimvq5uZKQJv1Aj_9jy1A6tY05D6xX2wHuew&usqp=CAU') repeat 0 0;
+    /* bubbles */
+    /* background: url('https://img.freepik.com/free-vector/clear-water-drops-dew-dripping-rain-droplets_107791-12567.jpg?size=626&ext=jpg&ga=GA1.2.1169253927.1655138962') repeat 0 0; */
 	-webkit-animation: 10s linear 0s normal none infinite animate;
 	-moz-animation: 10s linear 0s normal none infinite animate;
 	-ms-animation: 10s linear 0s normal none infinite animate;
@@ -137,7 +142,7 @@ img{
     width: 8em;
 }
 
-input[type="submit" i] {
+input[type="submit" i], button {
     appearance: auto;
     user-select: none;
     white-space: pre;
@@ -157,6 +162,10 @@ input[type="submit" i] {
     justify-content: center;
 }
 
+input[type="submit" i]:hover{
+    background-color: #abbea4;
+}
+
 #logoimage{
     height: 50px;
     width: auto;
@@ -165,12 +174,12 @@ input[type="submit" i] {
 }
 
 
-.fav-drinks-container{
+.fav-drinks-container, .selected-cocktail-container{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-.fav-drinks{
+.fav-drinks, .selected-cocktail{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -182,6 +191,7 @@ input[type="submit" i] {
 .cocktail-images{
     height: 15em;
     width: auto;
+    border-radius: 20%;
 }
 
 @media screen and (max-width: 480px) {
@@ -202,9 +212,15 @@ input[type="submit" i] {
         height: 500px ;
         width: 100px ;
     } */
-    .fav-drinks-container{
+    .fav-drinks-container, .selected-cocktail-container{
         display: grid;
         grid-template-columns: 1fr;
+    }
+    .nav-link {
+        font-size: 15px;
+    }
+    #logoimage{
+        margin: 0;
     }
 }
 
@@ -221,3 +237,52 @@ input[type="submit" i] {
 .open-tag{
     text-decoration: underline;
 }
+
+.selected-cocktail img, .cocktailShow-image{
+    border-radius: 20%;
+}
+
+button {
+    appearance: auto;
+    writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: buttontext;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    box-sizing: border-box;
+    background-color: buttonface;
+    margin: 0em;
+    padding: 1px 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonborder;
+    border-image: initial;
+}
+button:hover{
+    background-color: #abbea4;
+}
+
+
+.save-cocktails-btns, form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    margin-bottom: 1em;
+}
+#IngArray{
+    margin: 2em;
+}
+input{
+    margin-bottom: 2em;
+}
+
+

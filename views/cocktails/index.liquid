@@ -1,7 +1,10 @@
 {% layout "layout.liquid" %} {% block content %}
 
 <h1 class="favcocktails">Saved Cocktails</h1>
-
+<div class="save-cocktails-btns">
+<a href="/cocktails/new"><button>Add New Cocktail</button></a>
+<button class="" onclick=location.href="/ingredients">Back to Ingredients</button>
+</div>
 <div class="fav-drinks-container">
   {% for cocktail in cocktails %}
     <div class="fav-drinks">
@@ -20,6 +23,6 @@
         {% endcomment %}
   {% endfor %} 
 </div>
-<a href="/cocktails/new"><button>Add New Cocktail</button></a>
+
 
 {% endblock %}

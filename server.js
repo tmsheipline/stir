@@ -4,14 +4,15 @@
 require("dotenv").config(); // Load ENV Variables
 const express = require("express"); // import express
 const morgan = require("morgan"); //import morgan
-const methodOverride = require("method-override");
+const methodOverride = require("method-override")
 const path = require("path");
 const MongoStore = require('connect-mongo')
 const session = require('express-session')
 const IngredientRouter = require('./controllers/ingredient')
 const UserRouter = require('./controllers/user')
-const CocktailRouter = require('./controllers/cocktail');
-const FetchedCocktailRouter = require("./controllers/fetchedCocktail");
+const CocktailRouter = require('./controllers/cocktail')
+const FetchedCocktailRouter = require("./controllers/fetchedCocktail")
+const CocktailRecipeRouter = require('./controllers/cocktailRecipe')
 
 // Activate below for seed data
 // const Ingredient = require('./models/ingredient')
@@ -41,6 +42,7 @@ app.use('/ingredients', IngredientRouter)
 app.use('/users', UserRouter)
 app.use('/cocktails', CocktailRouter)
 app.use('/fetchedCocktails', FetchedCocktailRouter)
+app.use('/cocktailRecipes', CocktailRecipeRouter)
 
 app.get("/", (req, res) => {
     res.render("index");

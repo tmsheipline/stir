@@ -1,17 +1,22 @@
 {% layout "layout.liquid" %} {% block content %}
 
-<h1>Suggested Cocktail Recipe based on ingredients you have</h1>
-      <div class='selected-cocktail-list'>
+<h1>Suggested Cocktail Recipes </h1><br>
+    <div class="save-cocktails-btns"> 
+            <button class="" onclick=location.href="/ingredients">Back to Ingredients</button>
+            <button class="" onclick=location.href="/cocktails/new">Create Your Own Drink</button>
+    </div>
+      <div class='selected-cocktail-container'>
             {% for drink in drinks%}
-            <h4>{{drink.strDrink}}<br>
-            {{drink.idDrink}}
-          </h4>
-          <img src="{{drink.strDrinkThumb}}" id="cocktail-image" alt="No drink found - Search again"/> <br> <br>
+              <div class='selected-cocktail'>
+            <h4><a href="/{{drink.idDrink}}">{{drink.strDrink}}<br> </h4>
+            <img src="{{drink.strDrinkThumb}}" id="cocktail-image" alt="No drink found - Search again"/></a> <br>
           {%if drink == 'None Found'%}
           NO DRINK FOUND - TRY DIFFERENT INGREDIENTS
           {%endif%}
           <form action="">
           <input type="submit" value="Save Cocktail to my cocktails" />
+          <br>
+        </div>
         </form>
           {%endfor%}
         </div>
@@ -19,8 +24,7 @@
           
               
 
-
-            <button class="" onclick=location.href="/cocktails/new">Create Your Own Drink</button>
+        
 
 
 

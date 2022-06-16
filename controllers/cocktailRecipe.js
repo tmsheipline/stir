@@ -2,7 +2,7 @@
 // Import Dependencies
 ////////////////////////////////////////////
 const express = require('express')
-const fetchedCocktail = require('../models/fetchedCocktail')
+const CocktailRecipe = require('../models/cocktailRecipe')
 
 ////////////////////////////////////////////
 // Create router
@@ -25,9 +25,7 @@ router.use((req, res, next) => {
 	}
 })
 
-/*========================================
- ROUTES
-========================================*/
+
 /*========================================
  this route to get actual cocktail recipe info
 ========================================*/
@@ -36,28 +34,12 @@ router.get('/:drinkId', (req,res) => {
     console.log(`DRINK ID`,id)
 })
 
-// index route ('/route') - method=GET
-router.get("/", (req, res) => {
-    let username = req.session.username
-      // find all the cocktails
-      fetchedCocktail.find({username: req.session.username})
-        // render a template after they are found
-        .then((fetchedCocktail) => {
-          res.render("/cocktails/fetchedCocktail.liquid", {fetchedCocktails, username});
-        })
-        // send error as json if they aren't
-        .catch((error) => {
-          res.json({ error });
-        });  
-      });   
-
 /*========================================
  Post Route API
 ========================================*/
 router.post('/', (req,res) => {
-    // const ingArray = 
 
-    const requestURL = `https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=vodka,gin`
+    const requestURL = `www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11007`
 
     fetch(requestURL)
     .then((apiResponse) => {
@@ -73,9 +55,9 @@ router.post('/', (req,res) => {
     })
 })
 
-router.post('/API', (req,res) => {
-    console.log(req.body.IngArray)
-    const requestURL = `https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=${req.body.IngArray}`
+router.post('/recipeAPI', (req,res) => {
+    // console.log(req.body.IngArray)
+    const requestURL = `https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=${IdDrink}`
 
     fetch(requestURL)
     .then((apiResponse) => {
@@ -84,9 +66,10 @@ router.post('/API', (req,res) => {
     .then((jsonData) => {
         console.log(`here is the data`, jsonData)
         const cocktailData = jsonData
-        const drinks = cocktailData.drinks
-        res.render('cocktails/fetchedCocktail', {drinks})
+        const recipeId = cocktailData.idDrink
+        res.render('cocktails/fetchedCocktail', {recipeId})
     })
+    // CocktailRecipe.create({recipeId})
     .catch((error) => {
         console.log(error)
     })

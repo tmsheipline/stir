@@ -40,24 +40,24 @@
 
       <body>
         <header>
-          <img src="https://i.imgur.com/jyaJacl.png?1" id="logoimage" alt="Stir Logo">
-          <ul class="nav justify-content-end">
+          
+           <a href="/ingredients"><img src="https://i.imgur.com/jyaJacl.png?1" id="logoimage" alt="Stir Logo"></a>
+          <ul class="nav justify-content-end navbar-collapse">
             <li class="nav-item">
-                  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="/ingredients">Home</a>
                 </li>
                 <li class="nav-item">
                   <a class="flex-sm-fill text-sm-center nav-link" href="/cocktails">My cocktails</a>
                 </li>
-                {% comment %} <li class="nav-item">
+                 <li class="nav-item">
                   <a class="flex-sm-fill text-sm-center nav-link" href="">{{image}}</a>
-                </li> {% endcomment %}
-                <li class="nav-item">
+                </li> 
+                 <li class="nav-item">
                   <a class="flex-sm-fill text-sm-center nav-link" href="">{{username}}</a>
                 </li>
                 <li class="nav-item">
                   <a class="flex-sm-fill text-sm-center nav-link" href="/users/logout">Logout</a>
                 </li>
-            </ul>
+            </ul> 
         </header>
             <main>{% block content %}My default content{% endblock %} </main>
         <footer></footer>
