@@ -33,7 +33,23 @@ router.use((req, res, next) => {
 ========================================*/
 router.get('/:drinkId', (req,res) => {
     const id = req.params.drinkId
-    console.log(`DRINK ID`,id)
+    // console.log(`DRINK ID`,id)
+    // res.send(id)
+    const requestURL = `www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
+
+    fetch(requestURL)
+    .then((apiResponse) => {
+        console.log(apiResponse)
+        return apiResponse.json()
+    })
+    .then((jsonData) => {
+        console.log(`here is the data`, jsonData)
+        const cocktailData = jsonData
+        res.render('cocktails/fetchedCocktail', {recipeData, username})
+    })
+    .catch((error) => {
+        console.log(error)
+    })
 })
 
 // index route ('/route') - method=GET

@@ -8,34 +8,23 @@
       <div class='selected-cocktail-container'>
             {% for drink in drinks%}
               <div class='selected-cocktail'>
-            <h4><a href="/{{drink.idDrink}}">{{drink.strDrink}}<br> </h4>
+            <h4>{{drink.strDrink}}<br> </h4>
             <img src="{{drink.strDrinkThumb}}" id="cocktail-image" alt="No drink found - Search again"/></a> <br>
+            <a href="/fetchedCocktails/{{drink.idDrink}}">View Recipe Details</a>
           {%if drink == 'None Found'%}
           NO DRINK FOUND - TRY DIFFERENT INGREDIENTS
           {%endif%}
-          <form action="">
-          <input type="submit" value="Save Cocktail to my cocktails" />
-          <br>
-        </div>
+
+          <form action="/cocktails/index" method='POST'>
+            <input type="submit" value="Save Cocktail to my cocktails" />
+            <br>
+          </div>
         </form>
-          {%endfor%}
+        {%endfor%}
         </div>
         
           
-              
-
-        
-
-
-
-
-
-
-
-
-
-
-
+          
         {% comment %} Image<img src="{{}}" alt=""> <br>
         Ingredients: ?????? <br>
         {% for ingredients in cocktail.ingredients%}
