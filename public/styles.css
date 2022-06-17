@@ -1,334 +1,392 @@
 :root {
-    --header: #abbea4;
-    /* --header1: #2980b9; */
+  --header: #abbea4;
+  /* --header1: #2980b9; */
 }
 
-*{
-    box-sizing: border-box;
-    /* font-family: 'Playfair Display SC', serif; */
-    font-family: 'Playfair Display', serif;
+* {
+  box-sizing: border-box;
+  /* font-family: 'Playfair Display SC', serif; */
+  font-family: "Playfair Display", serif;
 
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
-header{
-    /* background-color: var(--header); */
-    background-color: var(--header);
-    margin: 0;
-    padding: 0;
-    width: 100%;
+header {
+  /* background-color: var(--header); */
+  background-color: var(--header);
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 .nav-link {
-    display: block;
-    padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
-    font-size: var(--bs-nav-link-font-size);
-    font-weight: var(--bs-nav-link-font-weight);
-    color: black;
-    text-decoration: none;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
-    font-size: 30px;
+  display: block;
+  padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+  font-size: var(--bs-nav-link-font-size);
+  font-weight: var(--bs-nav-link-font-weight);
+  color: black;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out;
+  font-size: 30px;
 }
 
-.nav-link:hover{
-    /* background-color: #ead685; */
-    background-color: whitesmoke;
+.nav-link:hover {
+  /* background-color: #ead685; */
+  background-color: whitesmoke;
 }
 
-.nav{
-    --bs-nav-link-hover-color: black;
+.nav {
+  --bs-nav-link-hover-color: black;
 }
 
-a:hover{
-        text-decoration: underline;
-        border: 1px solid black;
-    }
- .drinkname{
-    text-decoration: none;
-    color: black;
-    }
-.drinkname:hover{
-    border: none;
-    text-decoration: overline;
-    color: black;
+a:hover {
+  text-decoration: underline;
+  border: 1px solid black;
+}
+.drinkname {
+  text-decoration: none;
+  color: black;
+}
+.drinkname:hover {
+  border: none;
+  text-decoration: overline;
+  color: black;
 }
 
-.favcocktails{
-    margin: 1em;
-    color: black;
-    text-decoration: underline;
-    display: flex;
-    justify-content: center;
-    text-align: center;
+.favcocktails {
+  margin: 1em;
+  color: black;
+  text-decoration: underline;
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
-.individual-drink-name{
-    color: black;
+.individual-drink-name {
+  color: black;
 }
 
-body{
-	margin:0;
-	padding:0;
-    /* colorful cups */
-    /* background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQYduzRDvd7aq8LO9rEu5WMsaLOfguSuqx3w&usqp=CAU') repeat 0 0; */
-    /* grey drink cups */
-    /* background: url('https://thumbs.dreamstime.com/b/drink-cocktail-glasses-seamless-pattern-background-design-cover-menu-wine-list-restaurant-card-drink-cocktail-137842053.jpg') repeat 0 0; */
-    /* leafish pattern */
-     background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRimvq5uZKQJv1Aj_9jy1A6tY05D6xX2wHuew&usqp=CAU') repeat 0 0;
-    /* bubbles */
-    /* background: url('https://img.freepik.com/free-vector/clear-water-drops-dew-dripping-rain-droplets_107791-12567.jpg?size=626&ext=jpg&ga=GA1.2.1169253927.1655138962') repeat 0 0; */
-	-webkit-animation: 10s linear 0s normal none infinite animate;
-	-moz-animation: 10s linear 0s normal none infinite animate;
-	-ms-animation: 10s linear 0s normal none infinite animate;
-	-o-animation: 10s linear 0s normal none infinite animate;
-	animation: 10s linear 0s normal none infinite animate;
- 
+body {
+  margin: 0;
+  padding: 0;
+  /* colorful cups */
+  /* background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQYduzRDvd7aq8LO9rEu5WMsaLOfguSuqx3w&usqp=CAU') repeat 0 0; */
+  /* grey drink cups */
+  /* background: url('https://thumbs.dreamstime.com/b/drink-cocktail-glasses-seamless-pattern-background-design-cover-menu-wine-list-restaurant-card-drink-cocktail-137842053.jpg') repeat 0 0; */
+  /* leafish pattern */
+  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRimvq5uZKQJv1Aj_9jy1A6tY05D6xX2wHuew&usqp=CAU")
+    repeat 0 0;
+  /* bubbles */
+  /* background: url('https://img.freepik.com/free-vector/clear-water-drops-dew-dripping-rain-droplets_107791-12567.jpg?size=626&ext=jpg&ga=GA1.2.1169253927.1655138962') repeat 0 0; */
+  -webkit-animation: 10s linear 0s normal none infinite animate;
+  -moz-animation: 10s linear 0s normal none infinite animate;
+  -ms-animation: 10s linear 0s normal none infinite animate;
+  -o-animation: 10s linear 0s normal none infinite animate;
+  animation: 10s linear 0s normal none infinite animate;
 }
- 
+
 @-webkit-keyframes animate {
-	from {background-position:0 0;}
-	to {background-position: 500px 0;}
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 500px 0;
+  }
 }
- 
+
 @-moz-keyframes animate {
-	from {background-position:0 0;}
-	to {background-position: 500px 0;}
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 500px 0;
+  }
 }
- 
+
 @-ms-keyframes animate {
-	from {background-position:0 0;}
-	to {background-position: 500px 0;}
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 500px 0;
+  }
 }
- 
+
 @-o-keyframes animate {
-	from {background-position:0 0;}
-	to {background-position: 500px 0;}
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 500px 0;
+  }
 }
- 
+
 @keyframes animate {
-	from {background-position:0 0;}
-	to {background-position: 500px 0;}
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 500px 0;
+  }
 }
 
-.img-name-pic{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: column;
-    justify-content: center;
-    align-items: center;
-    margin: 1em;
-    text-align: center;
+.img-name-pic {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1em;
+  text-align: center;
+}
+
+.img-name-pic h3 {
+  display: none;
+}
+.img-name-pic:hover h3 {
+  display: block;
+}
+
+.ingredient-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+h1 {
+  text-align: center;
+}
+
+img {
+  height: 8em;
+  width: 8em;
+}
+
+input[type="submit" i],
+button {
+  appearance: auto;
+  user-select: none;
+  white-space: pre;
+  align-items: flex-start;
+  text-align: center;
+  cursor: default;
+  box-sizing: border-box;
+  background-color: buttonface;
+  color: buttontext;
+  padding: 1em;
+  border-width: 2px;
+  border-style: outset;
+  border-color: buttonborder;
+  border-image: initial;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type="submit" i]:hover {
+  background-color: #abbea4;
+}
+
+#logoimage {
+  height: 50px;
+  width: auto;
+  margin-top: 2.5em;
+  margin-left: 1em;
+}
+
+.fav-drinks-container,
+.selected-cocktail-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.fav-drinks,
+.selected-cocktail {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.cocktail-images {
+  height: 15em;
+  width: auto;
+  border-radius: 30%;
+}
+
+.highlight h3 {
+  display: block;
+  color: black;
+}
+.highlight {
+  border: 1px solid var(--header);
+  border-radius: 50%;
+  background-color: var(--header);
+}
+
+.open-tag {
+  text-decoration: underline;
+  margin: 1em;
+}
+
+.selected-cocktail img,
+.cocktailShow-image {
+  border-radius: 20%;
+}
+
+button {
+  appearance: auto;
+  writing-mode: horizontal-tb !important;
+  text-rendering: auto;
+  color: buttontext;
+  letter-spacing: normal;
+  word-spacing: normal;
+  line-height: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: center;
+  align-items: flex-start;
+  cursor: default;
+  box-sizing: border-box;
+  background-color: buttonface;
+  margin: 0em;
+  padding: 1px 6px;
+  border-width: 2px;
+  border-style: outset;
+  border-color: buttonborder;
+  border-image: initial;
+}
+button:hover {
+  background-color: #abbea4;
+}
+
+.save-cocktails-btns,
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+#IngArray {
+  margin: 2em;
+}
+input {
+  margin-bottom: 2em;
+}
+.cocktailShow-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.recipe-btns {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  margin: 1em;
+  justify-content: center;
+  align-items: center;
+}
+
+.recipe-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.first-screen-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2em;
+  padding: 10em;
+}
+
+.intro-forms {
+  display: block;
+  padding: 2em;
+  margin: 3em auto;
+  max-width: 500px;
+  border: 1px solid var(--header);
+  background-color: #abbea4;
+}
+
+a{
+    color: black;
+}
+a:hover{
+    color: var(--header);
+    border: none;
+}
+
+#remove-drink-form{
+    margin: 0.5em;
+    padding: 0;
 }
 
 
-.img-name-pic h3{
+
+
+
+/* Media Query - Keep at bottom */
+
+@media screen and (max-width: 480px) {
+  .ingredient-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  h1 {
+    font-size: 20px;
+  }
+  .img-name-pic h3 {
     display: none;
-}
-.img-name-pic:hover h3{
+  }
+  .img-name-pic:focus h3 {
     display: block;
-}
-
-.ingredient-container{
+  }
+  /* #logoimage{
+        height: 500px ;
+        width: 100px ;
+    } */
+  .fav-drinks-container,
+  .selected-cocktail-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-}
-
-h1{
-    text-align: center;
-}
-
-
-img{
-    height: 8em;
-    width: 8em;
-}
-
-input[type="submit" i], button {
-    appearance: auto;
-    user-select: none;
-    white-space: pre;
-    align-items: flex-start;
-    text-align: center;
-    cursor: default;
-    box-sizing: border-box;
-    background-color: buttonface;
-    color: buttontext;
-    padding: 1em;
-    border-width: 2px;
-    border-style: outset;
-    border-color: buttonborder;
-    border-image: initial;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-input[type="submit" i]:hover{
-    background-color: #abbea4;
-}
-
-#logoimage{
-    height: 50px;
-    width: auto;
-    margin-top: 2.5em;
-    margin-left: 1em;
-}
-
-
-.fav-drinks-container, .selected-cocktail-container{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-}
-
-.fav-drinks, .selected-cocktail{
+    grid-template-columns: 1fr;
+  }
+  .nav-link {
+    font-size: 15px;
+  }
+  #logoimage {
+    margin: 0;
+  }
+  .cocktailShow-container {
+    padding: 2em;
+  }
+  .recipe-btns {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    text-align: center;
-}
-
-.cocktail-images{
-    height: 15em;
-    width: auto;
-    border-radius: 20%;
-}
-
-
-.highlight h3{
+  }
+  .first-screen-container {
+    margin: 3em;
+    padding: 02em;
+  }
+  .intro-forms {
     display: block;
-    color: black;
-}
-.highlight {
+    padding: 1em;
+    margin: 2em auto;
+    max-width: 300px;
     border: 1px solid var(--header);
-    border-radius: 50%;
-    background-color: var(--header)
-}
-
-.open-tag{
-    text-decoration: underline;
-    margin: 1em;
-}
-
-.selected-cocktail img, .cocktailShow-image{
-    border-radius: 20%;
-}
-
-button {
-    appearance: auto;
-    writing-mode: horizontal-tb !important;
-    text-rendering: auto;
-    color: buttontext;
-    letter-spacing: normal;
-    word-spacing: normal;
-    line-height: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    display: inline-block;
-    text-align: center;
-    align-items: flex-start;
-    cursor: default;
-    box-sizing: border-box;
-    background-color: buttonface;
-    margin: 0em;
-    padding: 1px 6px;
-    border-width: 2px;
-    border-style: outset;
-    border-color: buttonborder;
-    border-image: initial;
-}
-button:hover{
     background-color: #abbea4;
-}
-
-
-.save-cocktails-btns, form{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1em;
-    margin-bottom: 1em;
-}
-#IngArray{
-    margin: 2em;
-}
-input{
-    margin-bottom: 2em;
-}
-.cocktailShow-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-}
-.recipe-btns{
-    display: flex;
-    flex-direction: row;
-    gap: 1em;
-    margin: 1em;
-    justify-content: center;
-    align-items: center;
-}
-
-.recipe-form{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-}
-
-.first-screen-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 2em;
-    padding: 10em;
-}
-
-@media screen and (max-width: 480px) {
-    .ingredient-container{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
-    h1{
-        font-size: 20px;
-    }
-    .img-name-pic h3{
-        display: none;
-    }
-    .img-name-pic:focus h3{
-        display: block;
-    }
-    /* #logoimage{
-        height: 500px ;
-        width: 100px ;
-    } */
-    .fav-drinks-container, .selected-cocktail-container{
-        display: grid;
-        grid-template-columns: 1fr;
-    }
-    .nav-link {
-        font-size: 15px;
-    }
-    #logoimage{
-        margin: 0;
-    }
-    .cocktailShow-container{
-        padding: 2em;
-    }
-    .recipe-btns{
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-    }
-    .first-screen-container{
-        margin: 3em;
-        padding: 02em;
-    }
+  }
 }

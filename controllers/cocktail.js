@@ -3,6 +3,7 @@
 ////////////////////////////////////////////
 const express = require('express')
 const Cocktail = require('../models/cocktail')
+const CocktailRecipe = require('../models/cocktailRecipe')
 const FetchedCocktail = require('../models/fetchedCocktail')
 
 ////////////////////////////////////////////
@@ -42,10 +43,13 @@ router.get("/", (req, res) => {
   let username = req.session.username
   let userImage = req.session.userImage
     // find all the cocktails
-    Cocktail.find({username: req.session.username, userImage: req.session.userImage})
+    Cocktail.find({username: req.session.username})
       // render a template after they are found
       .then((cocktails) => {
-        res.render("cocktails/index.liquid", { cocktails, username, userImage });
+        CocktailRecipe.find({username: req.session.username})
+        .then((cocktailRecipe) => {
+          res.render("cocktails/index.liquid", { cocktails, username, userImage,cocktailRecipe });
+        })
       })
       // send error as json if they aren't
       .catch((error) => {

@@ -52,6 +52,7 @@ router.post('/:id', (req,res) => {
     // create the new cocktail
     CocktailRecipe.create(req.body)
     .then((cocktailrecipe) => {
+      console.log(cocktailrecipe)
       // redirect user to index page if successfully created item
       res.redirect("/cocktails");
     })  
@@ -84,6 +85,24 @@ router.post('/', (req,res) => {
         console.log(error)
     })
 })
+
+
+// delete route ('/route/:id') - method=DELETE
+router.delete("/:id", (req, res) => {
+  // get the id from params
+  const id = req.params.id;
+  // delete the cocktail
+  CocktailRecipe.findByIdAndRemove(id)
+    .then((cocktailrecipe) => {
+      // redirect to main page after deleting
+      res.redirect("/cocktails");
+    })  
+    // send error as json
+    .catch((error) => {
+      console.log(error);
+      res.json({ error });
+    });  
+});  
 
 // router.post('/recipeAPI', (req,res) => {
 //     // console.log(req.body.IngArray)

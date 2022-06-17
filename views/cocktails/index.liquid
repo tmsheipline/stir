@@ -1,6 +1,6 @@
 {% layout "layout.liquid" %} {% block content %}
 
-<h1 class="favcocktails">Saved Cocktails</h1>
+<h1 class="favcocktails">My Cocktails</h1>
 <div class="save-cocktails-btns">
   <a href="/cocktails/new"><button>Add New Cocktail</button></a>
   <a href="/ingredients"><button>Back to Ingredients</button></a>
@@ -19,7 +19,7 @@
         class="cocktail-images"
         alt="Image of Cocktail"
     /></a>
-    <form action="/cocktails/{{ cocktail.id }}?_method=DELETE" method="POST">
+    <form action="/cocktails/{{ cocktail.id }}?_method=DELETE" id="remove-drink-form" method="POST">
       <input type="submit" value="Remove from My Cocktails List" />
     </form>
   </div>
@@ -28,25 +28,25 @@
 
 
 
-<!-- <div class="fav-drinks-container">
+<div class="fav-drinks-container">
   
-  {% for fetchedCocktail in fetchedCocktails %}
+  {% for cocktail in cocktailRecipe %}
   <div class="fav-drinks">
     Saved cocktail Creations
     <br />
-    <a href="/cocktails/{{  }}" class="drinkname">
-      <h4>{{  }}</h4>
+    <a href="/cocktails/{{cocktail.idDrink}}" class="drinkname">
+      <h4>{{ cocktail.strDrink }}</h4>
       <br />
       <img
-        src="{{  }}"
+        src="{{cocktail.strDrinkThumb }}"
         class="cocktail-images"
         alt="Image of Cocktail"
     /></a>
-    <form action="/cocktails/{{  }}?_method=DELETE" method="POST">
+    <form action="/cocktailRecipes/{{cocktail._id}}?_method=DELETE" method="POST">
       <input type="submit" value="Remove from My Cocktails List" />
     </form>
   </div>
   {% endfor %}
-</div> -->
+</div>
 
 {% endblock %}

@@ -4,12 +4,12 @@
 {% block content %}
 
     <div class="container-sm">
-        <form action="/users/login" method="POST">
+        <form action="/users/login" class="intro-forms" method="POST">
             <fieldset>
                 <legend>Please log in to continue</legend>
                 <label class="form-label">Username: </label>
                 <input type="text" name="username" placeholder="username" class="form-control" required>
-                <label class="form-label">Password</label>
+                <label class="form-label">Password:</label>
                 <input type="password" name="password" placeholder="enter password" class="form-control" required>
             </fieldset>
             <input type="submit" value="Log In" class="btn btn-success">

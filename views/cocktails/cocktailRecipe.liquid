@@ -16,15 +16,39 @@
       {{ recipe.strMeasure3 }}{{ recipe.strIngredient3 }}<br />
       {{ recipe.strMeasure4 }}{{ recipe.strIngredient4 }}<br />
       {{ recipe.strMeasure5 }}{{ recipe.strIngredient5 }}<br />
-      {{ recipe.strMeasure6 }}{{ recipe.strIngredient6 }}
+      {{ recipe.strMeasure6 }}{{ recipe.strIngredient6 }} <br/> <br>
       Preparation: <br />
       {{ recipe.strInstructions }} <br /><br />
     </h3>
       <form
         action="/cocktailRecipes/{{ recipe.idDrink }}"
         id="recipe-form"
-        method="POST"
-      >
+        method="POST">
+        <input type="hidden" name="idDrink" value="{{recipe.idDrink}}">
+        <input type="hidden" name="strDrink"value="{{recipe.strDrink}}">
+        <input type="hidden" name="strInstructions" value="{{ recipe.strInstructions }}">
+        <input type="hidden" name="strDrinkThumb" value="{{ recipe.strDrinkThumb }}">
+        <input type="hidden" name="strIngredient1"value="{{ recipe.strIngredient1 }}">
+        <input type="hidden" name="strIngredient2"value="{{ recipe.strIngredient2 }}">
+        <input type="hidden" name="strIngredient3"value="{{ recipe.strIngredient3 }}">
+        <input type="hidden" name="strIngredient4"value="{{ recipe.strIngredient4 }}">
+        <input type="hidden" name="strIngredient5"value="{{ recipe.strIngredient5 }}">
+        <input type="hidden" name=" strIngredient6"value="{{ recipe.strIngredient6 }}">
+        <input type="hidden" name="strIngredient7"value="">
+        <input type="hidden" name="strIngredient8"value="">
+        <input type="hidden" name="strIngredient9"value="">
+        <input type="hidden" name="strIngredient10"value="">
+        <input type="hidden" name=" strMeasure1"value="{{ recipe.strMeasure1 }}">
+        <input type="hidden" name="strMeasure2"value="{{ recipe.strMeasure2 }}">
+        <input type="hidden"name="strMeasure3"value="{{ recipe.strMeasure3 }}">
+        <input type="hidden"name="strMeasure4"value="{{ recipe.strMeasure4 }}">
+        <input type="hidden"name="strMeasure5"value="{{ recipe.strMeasure5 }}">
+        <input type="hidden"name="strMeasure6"value=" {{ recipe.strMeasure6 }}">
+        <input type="hidden"name="strMeasure7"value="">
+        <input type="hidden"name="strMeasure8"value="">
+        <input type="hidden"name="strMeasure9"value="">
+        <input type="hidden"name="strMeasure10"value="">
+        
         <input type="submit" value="Save to my cocktails" />
       </form>
 

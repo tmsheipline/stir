@@ -137,6 +137,7 @@ router.post('/API', (req,res) => {
 router.post('/:id', (req,res) => {
     req.body.username = req.session.username; 
     // create the new cocktail
+    
     CocktailRecipe.create(req.body)
     .then((cocktailrecipe) => {
       // redirect user to index page if successfully created item

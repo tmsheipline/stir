@@ -2,12 +2,12 @@
 {% block content %}
 
     <div class="container-sm">
-        <form action="/users/signup" method="POST">
+        <form action="/users/signup" class="intro-forms" method="POST">
             <fieldset>
                 <legend>New User</legend>
                 <label class="form-label">Username: </label>
                 <input type="text" name="username" placeholder="username" class="form-control" required>
-                <label class="form-label">Password</label>
+                <label class="form-label">Password:</label>
                 <input type="password" name="password" placeholder="enter password" class="form-control" required>
             </fieldset>
             <input type="submit" value="Create Account" class="btn btn-success">

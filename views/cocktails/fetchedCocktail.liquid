@@ -8,7 +8,7 @@
       <div class='selected-cocktail-container'>
             {% for drink in drinks%}
               <div class='selected-cocktail'>
-            <h4> <a href="/fetchedCocktails/{{drink.idDrink}} ">{{drink.strDrink}}</a><br> </h4>
+            <h4> <a href="/fetchedCocktails/{{drink.idDrink}}" id="drink-name-link">{{drink.strDrink}}</a><br> </h4>
             <img src="{{drink.strDrinkThumb}}" id="cocktail-image" alt=""/></a> <br>
             <a href="/fetchedCocktails/{{drink.idDrink}} "></a>
           {%if drink == 'None Found'%}
