@@ -38,7 +38,7 @@ router.get("/:drinkId", (req, res) => {
   // console.log(`DRINK ID`,id)
   // res.send(id)
   const requestURL = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`;
-
+  const fetch = require('node-fetch');
   fetch(requestURL)
     .then((apiResponse) => {
       console.log(apiResponse);
