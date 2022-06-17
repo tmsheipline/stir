@@ -26,6 +26,7 @@ As a user I want to:
 * Express
 * MongoDb
 * Mongoose
+* API - The CocktailDb (https://www.thecocktaildb.com/)
 
 ## Routes ##
 <img src="Screen Shot 2022-06-16 at 10.38.14 PM.png"/>
