@@ -23,7 +23,7 @@ As a user I want to:
 * Mongoose
 
 ## Routes ##
-![Screenshot](/Users/taylorsheipline/GeneralAssembly/Projects/stir/Screen Shot 2022-06-16 at 10.38.14 PM.png)
+![Screenshot](Screen Shot 2022-06-16 at 10.38.14 PM.png)
 
 ## Wireframes ##
 ![Screen Shot 2022-06-10 at 1 23 19 PM](https://user-images.githubusercontent.com/82854620/173147370-1d45062d-d9c1-4083-b337-487a16b40306.png)
