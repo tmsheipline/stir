@@ -4,7 +4,7 @@
 const express = require("express");
 const CocktailRecipe = require("../models/cocktailRecipe");
 const fetchedCocktail = require("../models/fetchedCocktail");
-
+const fetch = require('node-fetch')
 ////////////////////////////////////////////
 // Create router
 ////////////////////////////////////////////
