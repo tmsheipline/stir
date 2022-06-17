@@ -39,3 +39,6 @@ As a user I want to:
 ![Screen Shot 2022-06-10 at 3 47 59 PM](https://user-images.githubusercontent.com/82854620/173147396-dad1d9e8-f99b-4883-b7a8-9509b0fa7485.png)
 ![Screen Shot 2022-06-10 at 3 48 03 PM](https://user-images.githubusercontent.com/82854620/173147400-4a6daa39-dc4b-4807-a2f5-6a91ee38759c.png)
 ![Screen Shot 2022-06-10 at 3 48 23 PM](https://user-images.githubusercontent.com/82854620/173147405-363fe3a8-5ac0-46c8-a975-9f94c0b6619b.png)
+
+## Icebox / Stretch Goals ##
+* Add shopping cart functionality to add ingredients you dont have and be able to order them from your local delivery service
