@@ -1,15 +1,16 @@
 {% layout "layout.liquid" %} {% block content %}
 
-<h1 class="favcocktails">My Cocktails</h1>
+<!-- <h1 class="favcocktails">My Cocktails</h1> -->
+<br>
 <div class="save-cocktails-btns">
   <a href="/cocktails/new"><button>Add New Cocktail</button></a>
   <a href="/ingredients"><button>Back to Ingredients</button></a>
 </div>
+<h3 class="cocktail-title-text">Personal Creations</h3>
 <div class="fav-drinks-container">
   
   {% for cocktail in cocktails %}
   <div class="fav-drinks">
-    My cocktail Creations
     <br />
     <a href="/cocktails/{{ cocktail._id }}" class="drinkname">
       <h4>{{ cocktail.name }}</h4>
@@ -27,12 +28,11 @@
 </div>
 
 
-
+<h3 class="cocktail-title-text">Saved Creations</h3>
 <div class="fav-drinks-container">
   
   {% for cocktail in cocktailRecipe %}
   <div class="fav-drinks">
-    Saved cocktail Creations
     <br />
     <a href="/cocktails/{{cocktail.idDrink}}" class="drinkname">
       <h4>{{ cocktail.strDrink }}</h4>
@@ -42,7 +42,7 @@
         class="cocktail-images"
         alt="Image of Cocktail"
     /></a>
-    <form action="/cocktailRecipes/{{cocktail._id}}?_method=DELETE" method="POST">
+    <form action="/cocktailRecipes/{{cocktail._id}}?_method=DELETE" id="remove-drink-form" method="POST">
       <input type="submit" value="Remove from My Cocktails List" />
     </form>
   </div>
