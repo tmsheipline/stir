@@ -194,7 +194,7 @@ input[type="submit" i]:hover {
 }
 
 .fav-drinks-container,
-.selected-cocktail-container {
+.selected-cocktail-container{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
@@ -339,6 +339,14 @@ a:hover{
   color: darkgreen
 }
 
+.create-new-cocktail{
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  align-items: center;
+}
+
+
 
 
 
@@ -361,7 +369,7 @@ a:hover{
         width: 100px ;
     } */
   .fav-drinks-container,
-  .selected-cocktail-container {
+  .selected-cocktail-container,.create-new-cocktail {
     display: grid;
     grid-template-columns: 1fr;
   }

@@ -6,7 +6,7 @@
 
 <article class="ingredient-container" id="ingredient-container">
   <script type="text/javascript">
-      const ingArray = []
+      let ingArray = []
       //event delegation
       let selectedDiv;
       const ingContainer = document.getElementById('ingredient-container')
@@ -15,7 +15,6 @@
          
          selectedDiv = target.closest('div')
           selectedDiv.classList.add('highlight')
-          console.log(`hello`)
       
       }
      function selectedIngredient(name){
@@ -23,9 +22,10 @@
       console.log(ingArray)
      }
 
-    //  function clearChoice(name){
-    //   ingArray.pop(name)
-    //  }
+     function clearArray(){
+      ingArray = [];
+      console.log(ingArray)
+     }
 
      function lockChoices(){
       document.getElementById('IngArray').value= ingArray
@@ -35,7 +35,7 @@
 <!-- real -->
   <div
     class="img-name-pic"
-    onclick="selectedIngredient('{{ ingredient.name }}');clearChoice('{{ingredient.name}}')"
+    onclick="selectedIngredient('{{ ingredient.name }}')"
   >
     <img src="{{ ingredient.image }}" alt="Image of ingredient" />
     <h3 class="hide-ing-name">{{ ingredient.name }}</h3>
@@ -43,6 +43,8 @@
 
   {% endfor %}
 </article>
+
+<!-- <button onclick="clearArray()">Reset ingredients</button> -->
 
 <form action="/fetchedCocktails/API" method="POST">
 
