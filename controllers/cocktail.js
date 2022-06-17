@@ -30,11 +30,11 @@ router.use((req, res, next) => {
  ROUTES
 ========================================*/
 // new route ('/route/new') - method=GET
-router.get("/suggested", (req, res) => {
-  let username = req.session.username
-  let userImage = req.session.userImage
-  res.render(("cocktails/suggested.liquid"), {username, userImage});
-});  
+// router.get("/suggested", (req, res) => {
+//   let username = req.session.username
+//   let userImage = req.session.userImage
+//   res.render(("cocktails/suggested.liquid"), {username, userImage});
+// });  
 
 
 // index route ('/route') - method=GET
@@ -140,6 +140,7 @@ router.get("/:id/edit", (req, res) => {
       });
   });
 
+
   // show route ('/route/:id') - method=GET
   router.get("/:id", (req, res) => {
     // get the id from params
@@ -149,7 +150,7 @@ router.get("/:id/edit", (req, res) => {
     Cocktail.findById(id)
       .then((cocktail) => {
         // render the template with the data from the database
-        res.render("cocktails/show.liquid", { cocktail,fetchedCocktails,username });
+        res.render("cocktails/show.liquid", { cocktail,username });
       })
       .catch((error) => {
         console.log(error);

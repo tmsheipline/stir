@@ -194,35 +194,6 @@ input[type="submit" i]:hover{
     border-radius: 20%;
 }
 
-@media screen and (max-width: 480px) {
-    .ingredient-container{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
-    h1{
-        font-size: 20px;
-    }
-    .img-name-pic h3{
-        display: none;
-    }
-    .img-name-pic:focus h3{
-        display: block;
-    }
-    /* #logoimage{
-        height: 500px ;
-        width: 100px ;
-    } */
-    .fav-drinks-container, .selected-cocktail-container{
-        display: grid;
-        grid-template-columns: 1fr;
-    }
-    .nav-link {
-        font-size: 15px;
-    }
-    #logoimage{
-        margin: 0;
-    }
-}
 
 .highlight h3{
     display: block;
@@ -236,6 +207,7 @@ input[type="submit" i]:hover{
 
 .open-tag{
     text-decoration: underline;
+    margin: 1em;
 }
 
 .selected-cocktail img, .cocktailShow-image{
@@ -289,6 +261,74 @@ input{
     justify-content: center;
     align-items: center;
     text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.recipe-btns{
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    margin: 1em;
+    justify-content: center;
+    align-items: center;
 }
 
+.recipe-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
 
+.first-screen-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2em;
+    padding: 10em;
+}
+
+@media screen and (max-width: 480px) {
+    .ingredient-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    h1{
+        font-size: 20px;
+    }
+    .img-name-pic h3{
+        display: none;
+    }
+    .img-name-pic:focus h3{
+        display: block;
+    }
+    /* #logoimage{
+        height: 500px ;
+        width: 100px ;
+    } */
+    .fav-drinks-container, .selected-cocktail-container{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .nav-link {
+        font-size: 15px;
+    }
+    #logoimage{
+        margin: 0;
+    }
+    .cocktailShow-container{
+        padding: 2em;
+    }
+    .recipe-btns{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .first-screen-container{
+        margin: 3em;
+        padding: 02em;
+    }
+}

@@ -2,6 +2,7 @@
 // Import Dependencies
 ////////////////////////////////////////////
 const express = require('express')
+const CocktailRecipe = require('../models/cocktailRecipe')
 const fetchedCocktail = require('../models/fetchedCocktail')
 
 ////////////////////////////////////////////
@@ -70,6 +71,28 @@ router.get("/", (req, res) => {
       });   
 
 /*========================================
+ Edit
+========================================*/
+  // edit route ('/route/:id/edit') - method=GET
+  router.get("/:id/edit", (req, res) => {
+    // get the id from params
+    const id = req.params.id;
+    // get the recipe from the database
+    CocktailRecipe.findById(id)
+      .then((recipe) => {
+        // render edit page and send recipe data
+        res.render("cocktails/index", {recipe});
+      })
+      // send error as json
+      .catch((error) => {
+        console.log(error);
+        res.json({ error });
+      });
+  });
+
+
+
+/*========================================
  Post Route API
 ========================================*/
 router.post('/', (req,res) => {
@@ -110,5 +133,20 @@ router.post('/API', (req,res) => {
         console.log(error)
     })
 })
+
+router.post('/:id', (req,res) => {
+    req.body.username = req.session.username; 
+    // create the new cocktail
+    CocktailRecipe.create(req.body)
+    .then((cocktailrecipe) => {
+      // redirect user to index page if successfully created item
+      res.redirect("/cocktails");
+    })  
+    // send error as json
+    .catch((error) => {
+      console.log(error);
+      res.json({ error });
+    });  
+  }); 
 
 module.exports = router

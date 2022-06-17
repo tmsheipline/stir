@@ -47,6 +47,22 @@ router.use((req, res, next) => {
 //         console.log(error)
 //     })
 // })
+router.post('/:id', (req,res) => {
+    req.body.username = req.session.username; 
+    // create the new cocktail
+    CocktailRecipe.create(req.body)
+    .then((cocktailrecipe) => {
+      // redirect user to index page if successfully created item
+      res.redirect("/cocktails");
+    })  
+    // send error as json
+    .catch((error) => {
+      console.log(error);
+      res.json({ error });
+    });  
+  }); 
+
+
 
 /*========================================
  Post Route API
@@ -69,24 +85,24 @@ router.post('/', (req,res) => {
     })
 })
 
-router.post('/recipeAPI', (req,res) => {
-    // console.log(req.body.IngArray)
-    const requestURL = `https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=${IdDrink}`
+// router.post('/recipeAPI', (req,res) => {
+//     // console.log(req.body.IngArray)
+//     const requestURL = `https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=${IdDrink}`
 
-    fetch(requestURL)
-    .then((apiResponse) => {
-        return apiResponse.json()
-    })
-    .then((jsonData) => {
-        console.log(`here is the data`, jsonData)
-        const cocktailData = jsonData
-        const recipeId = cocktailData.idDrink
-        res.render('cocktails/fetchedCocktail', {recipeId})
-    })
-    // CocktailRecipe.create({recipeId})
-    .catch((error) => {
-        console.log(error)
-    })
-})
+//     fetch(requestURL)
+//     .then((apiResponse) => {
+//         return apiResponse.json()
+//     })
+//     .then((jsonData) => {
+//         console.log(`here is the data`, jsonData)
+//         const cocktailData = jsonData
+//         const recipeId = cocktailData.idDrink
+//         res.render('cocktails/fetchedCocktail', {recipeId})
+//     })
+//     // CocktailRecipe.create({recipeId})
+//     .catch((error) => {
+//         console.log(error)
+//     })
+// })
 
 module.exports = router

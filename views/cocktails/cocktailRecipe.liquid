@@ -16,18 +16,25 @@
       {{ recipe.strMeasure3 }}{{ recipe.strIngredient3 }}<br />
       {{ recipe.strMeasure4 }}{{ recipe.strIngredient4 }}<br />
       {{ recipe.strMeasure5 }}{{ recipe.strIngredient5 }}<br />
-      {{ recipe.strMeasure6 }}{{ recipe.strIngredient6 }}<br />
+      {{ recipe.strMeasure6 }}{{ recipe.strIngredient6 }}
       Preparation: <br />
       {{ recipe.strInstructions }} <br /><br />
-      <br />
     </h3>
-    <a href="/cocktails/{{ idDrink }}/edit"
-      ><button>Edit {{ recipe.strDrink }}</button></a
-    >
-    <form action="/cocktails/{{ idDrink }}" method="POST">
-      <input type="submit" value="Save to my cocktails" />
-    </form>
-    <a href="/cocktails/"><button>Back to My Cocktails</button></a>
+      <form
+        action="/cocktailRecipes/{{ recipe.idDrink }}"
+        id="recipe-form"
+        method="POST"
+      >
+        <input type="submit" value="Save to my cocktails" />
+      </form>
+
+      <div class="recipe-btns">
+      <a href="/fetchedCocktails/{{ recipe.idDrink }}/edit"
+        ><button>Edit {{ recipe.strDrink }}</button></a
+      >
+
+      <a href="/cocktails/"><button>Back to My Cocktails</button></a>
+    </div>
   </article>
 </div>
 {% endblock %}
