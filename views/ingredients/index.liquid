@@ -1,22 +1,22 @@
 {% layout "layout.liquid" %} {% block content %}
-<h1 class="open-tag">Find cocktail recipes based on the ingredients you already have in your pantry</h1>
+<h1 class="open-tag">
+  Find cocktail recipes based on the ingredients you already have in your pantry
+</h1>
 <h1>Select ingredients you currently have</h1>
 
-  <article class="ingredient-container" id="ingredient-container">
-    <script type="text/javascript">
+<article class="ingredient-container" id="ingredient-container">
+  <script type="text/javascript">
       const ingArray = []
       //event delegation
       let selectedDiv;
       const ingContainer = document.getElementById('ingredient-container')
-      {% comment %} console.log(ingContainer) {% endcomment %}
       ingContainer.onclick = function(event){
         let target = event.target
-         {% comment %} if (target.tagName == 'DIV'){ {% endcomment %}
+         
          selectedDiv = target.closest('div')
-          selectedDiv.classList.add('highlight') 
+          selectedDiv.classList.add('highlight')
           console.log(`hello`)
-          {% comment %} ingContainer.style.color = 'red' {% endcomment %}
-        {% comment %} } {% endcomment %}
+      
       }
      function selectedIngredient(name){
       ingArray.push(name)
@@ -26,32 +26,51 @@
      function lockChoices(){
       document.getElementById('IngArray').value= ingArray
     }
-    </script>
-    {% for ingredient in ingredients %}
-      
-      <div class="img-name-pic"  onclick="selectedIngredient('{{ingredient.name}}')">
-        <img src="{{ingredient.image}}" alt="Image of ingredient"> 
-        <h3 class="hide-ing-name"> {{ingredient.name}}</h3>
-      </div>
-    {% endfor %}
-  </article>
+  </script>
+  {% for ingredient in ingredients %}
 
- {% comment %} working {% endcomment %}
-  {% comment %} <button onclick="lockChoices()">Confirm selected Ingredients</button>
-  <form action="/fetchedCocktails/API" method='POST'>
-    <label></label>
-    <input type="hidden" id="IngArray" name="IngArray" value=>
-    <input type="submit" value="Search for cocktails">
-  </form> {% endcomment %}
+  <div
+    class="img-name-pic"
+    onclick="selectedIngredient('{{ ingredient.name }}')"
+  >
+    <img src="{{ ingredient.image }}" alt="Image of ingredient" />
+    <h3 class="hide-ing-name">{{ ingredient.name }}</h3>
+  </div>
+  {% endfor %}
+</article>
 
-  <form action="/fetchedCocktails/API" method='POST'>
-    {% comment %} <input type="button" onclick="lockChoices()" value='Search for cocktails' id="IngArray" name="IngArray"> {% endcomment %}
-    {% comment %} <input type="button" onclick="lockChoices()" value='Search for cocktails'> {% endcomment %}
-    <input type="submit" onclick="lockChoices()" id="IngArray" name="IngArray"  value="Search for cocktails">
-  </form>
+{% comment %} working {% endcomment %} {% comment %}
+<button onclick="lockChoices()">Confirm selected Ingredients</button>
+<form action="/fetchedCocktails/API" method="POST">
+  <label></label>
+  <input type="hidden" id="IngArray" name="IngArray" value=>
+  <input type="submit" value="Search for cocktails" />
+</form>
+{% endcomment %}
 
-{% comment %} <form action="/fetchedCocktail" method="POST" class="seach-cocktail-form">
-  <input type="hidden" name='ingArray'>
-</form> {% endcomment %}
+<form action="/fetchedCocktails/API" method="POST">
+  {% comment %}
+  <input
+    type="button"
+    onclick="lockChoices()"
+    value="Search for cocktails"
+    id="IngArray"
+    name="IngArray"
+  />
+  {% endcomment %} {% comment %}
+  <input type="button" onclick="lockChoices()" value="Search for cocktails" />
+  {% endcomment %}
+  <input
+    type="submit"
+    onclick="lockChoices()"
+    id="IngArray"
+    name="IngArray"
+    value="Search for cocktails"
+  />
+</form>
 
-{% endblock %}
+{% comment %}
+<form action="/fetchedCocktail" method="POST" class="seach-cocktail-form">
+  <input type="hidden" name="ingArray" />
+</form>
+{% endcomment %} {% endblock %}
