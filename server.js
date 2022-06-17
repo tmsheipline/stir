@@ -14,6 +14,7 @@ const CocktailRouter = require("./controllers/cocktail");
 const FetchedCocktailRouter = require("./controllers/fetchedCocktail");
 const CocktailRecipeRouter = require("./controllers/cocktailRecipe");
 
+
 // Activate below for seed data
 // const Ingredient = require('./models/ingredient')
 
@@ -23,7 +24,8 @@ const CocktailRecipeRouter = require("./controllers/cocktailRecipe");
 const app = require("liquid-express-views")(express(), {
   root: [path.resolve(__dirname, "views/")],
 });
-
+let rowdy = require('rowdy-logger')
+let rowdyResults = rowdy.begin(app)
 /*========================================
     Middleware
 ========================================*/
@@ -58,7 +60,8 @@ app.get("/", (req, res) => {
  Server Listener
 ========================================*/
 const PORT = process.env.PORT;
-app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+app.listen(PORT, () => console.log(`Listening on port ${PORT}`), function() {
+  rowdyResults.print()});
 
 // //SEED Data
 // app.get("/drinks/seed", (req, res) => {
