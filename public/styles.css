@@ -354,9 +354,6 @@ a:hover{
     font-size: 20px;
   }
   .img-name-pic h3 {
-    display: none;
-  }
-  .img-name-pic:focus h3 {
     display: block;
   }
   /* #logoimage{

@@ -23,43 +23,29 @@
       console.log(ingArray)
      }
 
+    //  function clearChoice(name){
+    //   ingArray.pop(name)
+    //  }
+
      function lockChoices(){
       document.getElementById('IngArray').value= ingArray
     }
   </script>
   {% for ingredient in ingredients %}
-
+<!-- real -->
   <div
     class="img-name-pic"
-    onclick="selectedIngredient('{{ ingredient.name }}')"
+    onclick="selectedIngredient('{{ ingredient.name }}');clearChoice('{{ingredient.name}}')"
   >
     <img src="{{ ingredient.image }}" alt="Image of ingredient" />
     <h3 class="hide-ing-name">{{ ingredient.name }}</h3>
   </div>
+
   {% endfor %}
 </article>
 
-{% comment %} working {% endcomment %} {% comment %}
-<button onclick="lockChoices()">Confirm selected Ingredients</button>
 <form action="/fetchedCocktails/API" method="POST">
-  <label></label>
-  <input type="hidden" id="IngArray" name="IngArray" value=>
-  <input type="submit" value="Search for cocktails" />
-</form>
-{% endcomment %}
 
-<form action="/fetchedCocktails/API" method="POST">
-  {% comment %}
-  <input
-    type="button"
-    onclick="lockChoices()"
-    value="Search for cocktails"
-    id="IngArray"
-    name="IngArray"
-  />
-  {% endcomment %} {% comment %}
-  <input type="button" onclick="lockChoices()" value="Search for cocktails" />
-  {% endcomment %}
   <input
     type="submit"
     onclick="lockChoices()"
@@ -68,9 +54,4 @@
     value="Search for cocktails"
   />
 </form>
-
-{% comment %}
-<form action="/fetchedCocktail" method="POST" class="seach-cocktail-form">
-  <input type="hidden" name="ingArray" />
-</form>
-{% endcomment %} {% endblock %}
+ {% endblock %}
