@@ -4,6 +4,7 @@
 const express = require('express')
 const User = require('../models/user')
 const bcrypt = require('bcryptjs')
+// const popupS = require('popups')
 
 ////////////////////////////////////////////
 // Create router
@@ -41,7 +42,9 @@ router.post('/signup', async (req, res) => {
         // if an error occurs, send err
         .catch(error => {
             console.log(error)
-            res.json(error)
+            // popupS.alert({content:error})
+            res.redirect('/users/login')
+            // res.json(error)
         })
 })
  
@@ -77,18 +80,20 @@ router.post('/login', async (req, res) => {
                     res.redirect('/ingredients')
                 } else {
                     // send an error if the password doesnt match
+                    // popupS.alert({content:'password incorrect'})
                     res.json({ error: 'password incorrect'})
 
                 }
             } else {
                 // send an error if the user doesnt exist
+                // popupS.alert({content:'user does not exist'})
                 res.json({ error: 'user does not exist' })
             }
         })
         // catch any other errors that occur
         .catch(error => {
             console.log(error)
-            res.json(error)
+        //    popupS.alert({content:error})
         })
 })
 

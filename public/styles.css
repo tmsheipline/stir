@@ -215,14 +215,18 @@ input[type="submit" i]:hover {
   border-radius: 30%;
 }
 
-.highlight h3 {
-  display: block;
-  color: black;
-}
 .highlight {
   border: 1px solid var(--header);
   border-radius: 50%;
   background-color: var(--header);
+}
+.highlight h3 {
+  display: block;
+  color: black;
+}
+
+.no-highlight{
+  background-color: red;
 }
 
 .open-tag {

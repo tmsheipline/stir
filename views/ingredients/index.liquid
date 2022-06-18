@@ -9,23 +9,35 @@
       let ingArray = []
       //event delegation
       let selectedDiv;
-      const ingContainer = document.getElementById('ingredient-container')
-      ingContainer.onclick = function(event){
+      // const ingContainer = document.getElementById('ingredient-container')
+      const ingContainer = document.getElementById('img-name-pic')
+    
+      function determineIngredients(name){
         let target = event.target
-         
-         selectedDiv = target.closest('div')
-          selectedDiv.classList.add('highlight')
-      
+        selectedDiv = document.getElementById(name)
+        if(ingArray.includes(name)){
+          let index = ingArray.indexOf(name)
+          // console.log(ingArray)
+          // console.log(index)
+          ingArray.splice(index, 1)
+          // console.log(ingArray)
+          selectedDiv.classList.remove('highlight')
+      } else {
+        // let target = event.target
+        // selectedDiv = target.closest('div')
+        // selectedDiv = document.getElementById(name)
+        selectedIngredient(name);
+        selectedDiv.classList.add('highlight')
       }
+     }
+
+
      function selectedIngredient(name){
       ingArray.push(name)
       console.log(ingArray)
      }
 
-     function clearArray(){
-      ingArray = [];
-      console.log(ingArray)
-     }
+    
 
      function lockChoices(){
       document.getElementById('IngArray').value= ingArray
@@ -35,7 +47,8 @@
 <!-- real -->
   <div
     class="img-name-pic"
-    onclick="selectedIngredient('{{ ingredient.name }}')"
+    id="{{ ingredient.name }}"
+    onclick="determineIngredients('{{ ingredient.name }}')"
   >
     <img src="{{ ingredient.image }}" alt="Image of ingredient" />
     <h3 class="hide-ing-name">{{ ingredient.name }}</h3>
